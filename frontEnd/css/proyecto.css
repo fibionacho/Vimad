@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    
+}
+body {
+    background: linear-gradient(to right, #20034e   ,#3909aa );
+  
+}
+
+#nav {
+    margin-top: 1%;
+    display: flex;
+    margin-left: 5px;
+    
+    /*justify-items: center;*/
+}
+
+div.container-fluid div{
+    height: 110px;
+    display: flex;
+    align-items: center;
+
+}
+.container-fluid{
+    display: block;
+    position: sticky;
+    background: linear-gradient(to right, #20034e   ,#3909aa );
+   ;
+    top: 0px;
+    z-index: 70;
+}
+
+
+
+.col{
+    position: relative;
+    width: 80%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+#listas{
+    justify-content: right;
+}
+
+.nav1 {
+   font-size: 150%;
+    padding-left: 5%;
+    color: white;
+    text-decoration: none;
+}
+.nav1:hover{
+    color: white;
+    text-decoration: none;
+}
+#buscador{
+    /*justify-content: right;*/
+}
+/*.col {
+    border: 1px solid white;
+}*/
+
+#search{
+    width: 60%;
+    height: 35%;
+    border: 4px solid #20034e;
+    margin-left: 4%;
+   
+}
+#user{
+    display: flex;
+    justify-content: end;
+   
+}
+#cajalogo{
+   
+   /* align-content: center;
+    justify-content: center;*/
+}
+
+
+ul, ol {
+    list-style:none;
+}
+.nav > li {
+    float:none;
+}
+#userlist{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    padding-left: 3%;
+}
+.nav li a {
+    
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    display:flex;
+    justify-content: baseline;
+    padding-left: 1%;
+}
+.desplegable{
+    text-align: center;
+}
+.nav li a:hover {
+    background-color:#434343;
+    font-weight: bold;
+}
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:150px;
+}
+.nav li:hover > ul {
+    display:block;
+}
+.nav li ul li {
+    position:relative;
+    display: block;
+}
+
+ .nav li ul li ul {
+    
+    top:0px;
+}
+.pic{
+    padding-right: 12%;
+   
+}
+
+
+
+/*Estilo slide de películas*/
+h1{
+    color: #20034e;
+}
+.carousel-inner img {
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 20%;
+  }
+.pel{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+#demo{
+    height:300px;
+}
+
+/*Estilo para el no-slide de peliculas*/
+.seccion{
+    text-align: center;
+    margin: auto;
+    
+}
+
+
+
+.seleccion{
+   height: 320px;
+    width: 250px;
+    
+    display: inline-block;
+    transition: all 0.5s;
+}
+.seleccion:hover{
+    height: 325px;
+    width: 255px;
+   /* z-index: 200;*/
+    transition: all 0.5s;
+   
+    
+}
+
+.titulos{
+    color: #fff;
+}
+
+
+/*Otro estilo para slide*/
+.carro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+
+}
+.main-scroll-div{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid red;
+}
+.cover{
+    position:relative;
+    width: 90%;
+    height: 50%;
+}
+.cover::before{
+    position: absolute;
+    content: "";
+    left:0;
+    top:0;
+    z-index: 10;
+    height: 100%;
+    width: 150px;
+}
+.cover::after{
+    position: absolute;
+    content: "";
+    right:0;
+    top:0;
+    z-index: 10;
+    height: 100%;
+    width: 150px;
+}
+.scroll-images{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: auto;
+    position: relative;
+    scroll-behavior: smooth;
+}
+.child{
+    height: 320px;
+    width: 250px;
+    margin: 1px 10px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid white;
+}
+.scroll-images::-webkit-scrollbar{
+-webkit-appearemce:none;
+}
+.child-img{
+    width: 100%;
+    height: 100%;
+}
+
+.marco{
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+}
+
+    .top {
+        background-color: #40079c;;
+        color: white;
+        z-index: 100;
+        position: absolute;
+        top: 10px;
+        left:25%;
+        padding-left: 20%;
+        padding-right: 20%;
+        padding-top: 2%;
+        padding-bottom: 5%;
+        border:1px solid white;
+        border-top-left-radius: 100%;
+        border-bottom-right-radius: 100%;
+      }

@@ -1,0 +1,91 @@
+#foto{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    border: 3px solid white;
+    display: inline;
+}
+#perfil{
+  
+    margin-top: 50px;
+    z-index: -10;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.row{
+    height: 500px;
+   
+  
+}
+label{
+  
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    /*el cursor es la manita al acercarse al checkbox*/
+    cursor: pointer;
+    display: flex;
+    position: relative;
+  
+}
+.label span{
+    position: relative;
+    top: 0;
+}
+label input{
+    position: relative;
+    transform: scale(0);
+}
+input:checked ~ .checkbox{
+    transform: rotate(45deg);
+    width: 20px;
+    margin-left: 16px;
+    border-color: #79b0a1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+}
+.checkbox{
+    top:5%;
+    display: block;
+    width: inherit;
+    height: inherit;
+    border: 3px solid black;
+    border-radius: 6px;
+    transition: all 0.375s;
+}
+.bloque{
+  margin-left: 7%;
+    justify-content: left;
+    align-items: left;
+    display: flex;
+    border-bottom: 1px solid white;
+   
+}
+
+.title{
+    margin-left: 5%;
+}
+h4,h2,h5{
+    color: white;
+}
+h5{
+  margin-left: 15%;
+   font-style: oblique;
+}
+#preferencia{
+  
+   margin-left: 3%;
+   margin-right: 3%;
+}
+#preferencia:hover{
+    /*background: linear-gradient(to right  ,#3909aa, #20034e  );*/
+    background-color: rgb(36, 26, 54);
+    
+}
+audio{
+    display: flex;
+    height: 20%;
+    margin-left: 5%;
+}

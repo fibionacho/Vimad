@@ -1,0 +1,82 @@
+body{
+    font-family: 'Montserrat', monospace;
+    font-weight: bold;
+    background-color: #161616;
+}
+
+#videoContainer{
+    width: 1000px;
+    height: 600px;
+    margin: 50px auto;
+    background-color: #20034e;
+    position: relative;
+}
+#videoContainer:hover #controls,
+#videoContainer:hover #progress-container{
+    opacity: 1;
+}
+#myVideo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#mute{
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 5px;
+}
+#controls, #progress-container{
+    opacity:0;
+    transition: all 0.5;
+    position: absolute;
+    width: 100%;
+    background-color: #161616;
+    color:#fff;
+    display: flex;
+    justify-content: space-between;
+}
+#controls{
+    top:0;
+}
+#progress-container{
+    bottom: 0;
+}
+#playPause{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vw;
+    color:#20034e;
+    transition: all 0.5s;
+    cursor: pomuteinter;
+ 
+}
+.range-css{
+    -webkit-appearance: none;
+    width: 30%;
+    height: 1vh;
+    background-color: #20034e;
+    cursor: ew-resize;
+    border-radius: 1.5rem;
+}
+.range-css::-ms-tooltip{
+    display: none;
+}
+#progress{
+    width: 100%;
+    margin: auto;
+    border-radius: 0;
+}
+.range-css::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    border: 1px solid #D8D;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #20034e;
+    box-shadow: 0 0 .125rem #aaa;
+}
+.hide{
+    opacity: 0;
+}
