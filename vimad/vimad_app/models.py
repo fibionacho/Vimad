@@ -36,22 +36,23 @@ class Corto(models.Model):
     sinopsis=models.TextField(max_length=50)
     imagen=models.ImageField(upload_to='', null=True)
     video=models.FileField(upload_to='',null=True)
+    director = models.ManyToManyField(Director, through='Dirige')
+    actor = models.ManyToManyField(Actor, through='Actua')
+    estudio = models.ForeignKey(Estudio, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.titulo
 
 class Dirige(models.Model):
-    nombre = models.ForeignKey(Director, on_delete=models.CASCADE)
-    titulo = models.ForeignKey(Corto, on_delete=models.CASCADE)
-    id = MultiFieldPK('nombre', 'titulo')
+    corto = models.ForeignKey(Corto, on_delete=models.CASCADE)
+    director = models.ForeignKey(Director, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.id
+        return f'{self.director} dirige {self.corto}'
 
 class Actua(models.Model):
-    nombre = models.ForeignKey(Actor, on_delete=models.CASCADE)
-    titulo = models.ForeignKey(Corto, on_delete=models.CASCADE)
-    id = MultiFieldPK('nombre', 'titulo')
+    corto = models.ForeignKey(Corto, on_delete=models.CASCADE)
+    actor = models.ForeignKey(Actor, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.id
+        return f'{self.actor} actúa en {self.corto}'

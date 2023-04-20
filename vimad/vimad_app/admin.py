@@ -1,10 +1,5 @@
 from django.contrib import admin
-from .models import Estudio
-from .models import Director
-from .models import Actor
-from .models import Corto
-from .models import Dirige
-from .models import Actua
+from .models import Estudio, Director, Actor, Corto, Dirige, Actua
 
 # Register your models here.
 admin.site.register(Estudio)

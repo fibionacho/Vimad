@@ -11,9 +11,3 @@ def index(request):
     estudio = Estudio.objects.all()
     context = {'EstudioT':estudio}
     return render(request, 'app_noticias/listado.html', context)
-
-
-def detalle_noticias(request, titulo):
-    NoticiasO = Noticias.objects.get(titulo=titulo)
-    context = {'NoticiasT':NoticiasO}
-    return render(request, 'app_noticias/noticias.html', context)
