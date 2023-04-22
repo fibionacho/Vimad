@@ -1,6 +1,8 @@
+
+DROP TABLE Estudio CASCADE CONSTRAINTS;
 CREATE TABLE Estudio (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(50),
+  nombre VARCHAR(50) NOT NULL,
   fec_fundacion DATE
 );
 
@@ -9,10 +11,11 @@ VALUES ('Estudio1', '2022-01-01'),
        ('Estudio2', '2005-07-15'),
        ('Estudio3', '1998-12-31');
 
+DROP TABLE Director CASCADE CONSTRAINTS;
 CREATE TABLE Director (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(50),
-  fec_nacimiento DATE,
+  nombre VARCHAR NOT NULL(50) ,
+  fec_nacimiento DATE ,
   nacionalidad VARCHAR(50)
 );
 
@@ -20,10 +23,10 @@ INSERT INTO Director (nombre, fec_nacimiento, nacionalidad)
 VALUES ('Pedro', '1995-02-03', 'España'),
         ('Ana', '1998-01-12', 'Canadá');
 
-
+DROP TABLE Actor CASCADE CONSTRAINTS;
 CREATE TABLE Actor (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(50),
+  nombre VARCHAR(50) NOT NULL,
   fec_nacimiento DATE,
   nacionalidad VARCHAR(50)
 );
@@ -36,19 +39,19 @@ VALUES ('Actor1', '1985-06-20', 'Estados Unidos'),
        ('Actor4', '1982-12-05', 'Canadá'),
        ('Actor5', '1975-07-18', 'Australia');
 
-
+DROP TABLE Corto CASCADE CONSTRAINTS;
 CREATE TABLE Corto (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  titulo VARCHAR(50),
-  puntuacion VARCHAR(10),
-  genero VARCHAR(50),
-  duracion VARCHAR(3),
+  titulo VARCHAR(50) NOT NULL,
+  puntuacion NUMBER,
+  genero VARCHAR(50) NOT NULL,
+  duracion VARCHAR(3) NOT NULL,
   fec_estreno DATE,
-  idioma VARCHAR(50),
-  pais VARCHAR(50),
+  idioma VARCHAR(50) NOT NULL,
+  pais VARCHAR(50) NOT NULL,
   sinopsis TEXT,
-  ruta_imagen VARCHAR(255) NULL,
-  ruta_video VARCHAR(255) NULL,
+  ruta_imagen VARCHAR(255) NOT NULL,
+  ruta_video VARCHAR(255) NOT NULL,
   estudio_id INT,
   FOREIGN KEY (estudio_id) REFERENCES Estudio (id) ON DELETE CASCADE
 );
@@ -61,9 +64,9 @@ VALUES ('Corto1', '8.5', 'Comedia', '15', '2022-01-01', 'Español', 'España', '
        ('Corto4', '9.1', 'Fantasía', '8', '2023-03-20', 'Alemán', 'Alemania', 'Sinopsis del Corto4', 'imagen4.jpg', 'video4.mp4'),
        ('Corto5', '7.3', 'Romance', '18', '2022-07-05', 'Italiano', 'Italia', 'Sinopsis del Corto5', 'imagen5.jpg', 'video5.mp4');
 
-
+DROP TABLE Dirige CASCADE CONSTRAINTS;
 CREATE TABLE Dirige (
-  id VARCHAR(100) PRIMARY KEY,
+  id INT PRIMARY KEY,
   nombre_id INT,
   titulo_id INT,
   FOREIGN KEY (nombre_id) REFERENCES Director (id) ON DELETE CASCADE,
@@ -78,8 +81,9 @@ VALUES ('1', 1, 1),
        ('5', 1, 5);
 
 
+DROP TABLE Actua CASCADE CONSTRAINTS;
 CREATE TABLE Actua (
-    id VARCHAR(100) PRIMARY KEY,
+    id INT(100) PRIMARY KEY,
     nombre_id INT,
     titulo_id INT,
     FOREIGN KEY (nombre_id) REFERENCES Actor(id),
