@@ -14,7 +14,7 @@ VALUES ('Estudio1', '2022-01-01'),
 DROP TABLE Director CASCADE CONSTRAINTS;
 CREATE TABLE Director (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR NOT NULL(50) ,
+  nombre VARCHAR (50) NOT NULL ,
   fec_nacimiento DATE ,
   nacionalidad VARCHAR(50)
 );
@@ -43,7 +43,7 @@ DROP TABLE Corto CASCADE CONSTRAINTS;
 CREATE TABLE Corto (
   id INT AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(50) NOT NULL,
-  puntuacion NUMBER,
+  puntuacion DOUBLE,
   genero VARCHAR(50) NOT NULL,
   duracion VARCHAR(3) NOT NULL,
   fec_estreno DATE,
@@ -74,11 +74,11 @@ CREATE TABLE Dirige (
 );
 
 INSERT INTO Dirige (id, nombre_id, titulo_id)
-VALUES ('1', 1, 1),
-       ('2', 1, 2),
-       ('3', 2, 3),
-       ('4', 2, 4),
-       ('5', 1, 5);
+VALUES (1, 1, 1),
+       (2, 1, 2),
+       (3, 2, 3),
+       (4, 2, 4),
+       (5, 1, 5);
 
 
 DROP TABLE Actua CASCADE CONSTRAINTS;
@@ -91,8 +91,8 @@ CREATE TABLE Actua (
 );
 
 INSERT INTO Actua (id, nombre_id, titulo_id)
-VALUES ('1',5,1),
-('2', 5, 2),
-('3', 1, 2),
-('4', 1, 3),
-('5', 2, 3);
+VALUES (1,5,1),
+(2, 5, 2),
+(3, 1, 2),
+(4, 1, 3),
+(5, 2, 3);
