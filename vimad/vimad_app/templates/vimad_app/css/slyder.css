@@ -1,0 +1,151 @@
+/* Slyder*/
+.frame {
+   /* height: 250px;*/
+   height: 320px;
+ 
+    line-height: 250px;
+    overflow: hidden;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+
+.frame ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+   /* height: 100%;*/
+   height: 320px;
+   width: 250px;
+    font-size: 50px;
+}
+
+.frame ul li {
+    float: left;
+    height: 320px;
+    width: 250px;
+    margin: 3px 18px 3px 3px;
+    padding: 0;
+    background: #333;
+    color: #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.frame ul li.active {
+    color: #fff;
+    background: #a03232;
+    border: 5px solid rgb(169, 30, 167);
+
+}
+
+/* Scrollbar */
+.scrollbar {
+    margin: 0 0 1em 0;
+    height: 2px;
+    background: #ccc;
+    line-height: 0;
+}
+
+.scrollbar .handle {
+    width: 100px;
+    height: 100%;
+    background: #292a33;
+    cursor: pointer;
+}
+
+.scrollbar .handle .mousearea {
+    position: absolute;
+    top: -9px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+
+/* Controls */
+.controls {
+    margin: 25px 0;
+    text-align: center;
+}
+
+/* Navigation */
+.mainnav {
+    position: absolute;
+    top: 0;
+    padding-top: 50px;
+    width: 252px;
+}
+
+.mainnav.fixed {
+    position: fixed;
+    padding-top: 30px;
+}
+
+.mainnav.fixed.bottom {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+}
+
+.mainnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mainnav ul li {
+    margin: 0 0 1px 0;
+    padding: 0;
+}
+
+.mainnav ul li a {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding-left: 30px;
+    height: 60px;
+    line-height: 60px;
+    font-family: Novecento, sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.mainnav ul li a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    margin-top: -30px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border: 30px solid transparent;
+    border-left: 0;
+}
+
+.csstransforms .mainnav ul li a:before {
+    border-width: 15px;
+    margin-top: -15px;
+    left: -15px;
+    -webkit-transform: scaleY(2);
+    -moz-transform: scaleY(2);
+    -ms-transform: scaleY(2);
+    -o-transform: scaleY(2);
+    transform: scaleY(2);
+}
+
+.lt-ie10.csstransforms .mainnav ul li a:before {
+    left: -14px;
+}
+
+.btn{
+
+    background-color: #292a33;
+    color: white;
+}
+
+.btn:hover{
+    background-color: white;
+    color: #292a33;
+}

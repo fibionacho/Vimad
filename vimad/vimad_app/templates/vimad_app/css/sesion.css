@@ -1,0 +1,121 @@
+
+
+body{
+    background: linear-gradient(to right, #20034e   ,#3909aa );
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, p{
+    font-weight: normal;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+dl, dd, menu, ul{
+    padding: 0%;
+    margin: 0;
+    list-style: none;
+}
+ol{
+    list-style-type: decimal;
+}
+/*img{
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+}*/
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.hero{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height:60%;
+    background-color: whitesmoke;
+    position:relative
+}
+
+.slider{
+    
+    width: 100%;
+    height: 65vh;
+    position: relative;
+    display: flex;
+    transition: all 0.5s;
+    overflow: hidden;
+   
+}
+
+.slider .slide{
+    width: 20%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.slider .slide:nth-child(1){
+    background: url("https://static.wikia.nocookie.net/breakingbad/images/2/28/T5_-_Skyler.jpg/revision/latest?cb=20120715073105&path-prefix=es");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.slider .slide:nth-child(2){
+    background: url("https://static.wikia.nocookie.net/breakingbad/images/2/2a/BB_T5A-Walter_White.png/revision/latest?cb=20221207180457&path-prefix=es");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.slider .slide:nth-child(3){
+    background: url("https://static.wikia.nocookie.net/breakingbad/images/6/6d/T5_-_Hank.jpg/revision/latest?cb=20120715073115&path-prefix=es");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.slider .slide:nth-child(4){
+    background: url("https://static.wikia.nocookie.net/breakingbad/images/7/77/MikeEnBB.webp/revision/latest?cb=20220820224511&path-prefix=es");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.slider .slide:nth-child(5){
+    background: url("https://static.wikia.nocookie.net/breakingbad/images/5/52/BB_S5A_Jesse_Pinkman.png/revision/latest?cb=20221026171345&path-prefix=es");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.slider .slide:hover{
+    width:60%;
+    cursor:pointer;
+}
+#user-text{
+    display: flex;
+    justify-content: center;
+}
+#usuario{
+    font-size: 200%;
+    font-weight: bold;
+    color: white;
+
+}
+.perfil{
+
+    font-size: 200%;
+    color: white;
+    padding: 30%;
+    padding-bottom: 200%;
+    background-color: transparent;
+    transition: all 0.5s;
+   
+}
+.perfil:hover{
+font-size: 400%;
+font-weight: bold;
+transition: all 0.5s;
+}

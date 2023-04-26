@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-3-vh_a$2x!^8qr71wk(^l4z689l$hl*^vwq4d@2os+aljx0^ws
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'VIMAD2',
+        'NAME': 'VIMAD',
         'USER': 'uservimad',
         'PASSWORD': 'uservimad1234',
         'HOST': '127.0.0.1',
