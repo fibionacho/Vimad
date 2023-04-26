@@ -1,40 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/proyecto.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/proyecto.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
     <title>Ajustes</title>
 </head>
 <body>
-    <!--SECCION NAVEGACION-->
+    <!--MENÚ/NAVEGADOR-->
     <div class="container-fluid   text-white">
         <div class="row" id="nav">
-
             <div class="col">
-                <img src="png/logo-no-background.png" alt="" height="100px">
+                <img src="{% static 'png/logo-no-background.png' %}"
+                     alt=""
+                     height="100px"
+                     width="">
             </div>
-
             <div class="col" id="listas">
-                <a href="index.html" class="nav1">Inicio</a>
-                <a href="" class="nav1">Películas</a>
-                <a href="" class="nav1">Series</a>
+                <a href={% url 'vimad:index' %} class="nav1">Inicio</a>
+                <a href={% url 'vimad:peliculas' %} class="nav1">Películas</a>
             </div>
-
             <div class="col " id="buscador">
-                <img src="img/lupa.svg" alt="" height="35px">
+                <img src="{% static 'img/lupa.svg' %}" alt="" height="35px" width="">
                 <input type="text" name="" id="search" placeholder="Buscar">
                 <ul class="nav">
-                    <li id="userlist"> <img src="img/user.svg" alt="" height="45px" id="user">
+                    <li id="userlist">
+                        <img src="{% static 'img/user.svg' %}"
+                             alt=""
+                             height="45px"
+                             width=""
+                             id="user">
                         <ul class="desplegable">
-                            <li><a href="sesion.html"><img src="img/user2.svg" alt="" height="20px" class="pic">Perfil</a></li>
-                            <li><a href=""><img src="img/seguridad.svg" alt="" height="20px" class="pic"
-                                        id="user">Seguridad</a></li>
-                            <li><a href="perfil.html"><img src="img/settings.svg" alt="" height="20px" class="pic">Ajustes</a></li>
-                            <li><a href="inicio.html"><img src="img/sesion.svg" alt="" height="20px" class="pic">Cerrar sesión</a>
+                            <li>
+                                <a href="{% url 'vimad:sesion' %}">
+                                    <img src="{% static 'img/user2.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic">
+                                Perfil</a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="{% static 'img/seguridad.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic"
+                                         id="user">
+                                Seguridad</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'vimad:perfil' %}">
+                                    <img src="{% static 'img/settings.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic">
+                                Ajustes</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'vimad:inicio' %}">
+                                    <img src="{% static 'img/sesion.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic">
+                                Cerrar sesión</a>
                             </li>
                         </ul>
                     </li>
@@ -42,86 +76,99 @@
             </div>
         </div>
     </div>
-        <div id="perfil">
-            
-            <img src="img/perfil.png" alt="" id="foto">
-            <br>  
-            
-        </div>
-<br><br><br>
-<div id="preferencia">
+    <br>
+    <br>
+    <div id="perfil">
+        <img src="{% static 'img/perfil.png' %}" alt="" id="foto">
+        <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="preferencia">
         <div>
-            
-            <h2 class="title">Preferencias de la cuenta:</h2> 
-           
+            <h2 class="title">Preferencias de la cuenta:</h2>
         </div>
-        
         <div class="bloque">
-            <h4 > Facturación periódica</h3>
+            <h4>
+                Facturación periódica
+            </h3>
             <label class="label">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <span class="checkbox"></span>
             </label>
             <h5>Su próxima facturacón periódica será el 25/06/2023</h5>
         </div>
         <br>
         <div class="bloque">
-            <h4> V.O.S.E. por defecto</h3>
+            <h4>
+                V.O.S.E. por defecto
+            </h3>
             <label class="label">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <span class="checkbox"></span>
             </label>
             <h5>Los vídeos se reproducirán en su idioma nativo por defecto</h5>
         </div>
         <br>
         <div class="bloque">
-            <h4> Mejor resolución de vídeo</h3>
+            <h4>
+                Mejor resolución de vídeo
+            </h3>
             <label class="label">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <span class="checkbox"></span>
             </label>
             <h5>Los vídeos se reproducirán en la calidad más alta que permita la pantalla</h5>
         </div>
         <br>
         <div class="bloque">
-            <h4> Varias pantallas</h3>
+            <h4>
+                Varias pantallas
+            </h3>
             <label class="label">
-                <input class="input" type="checkbox"/>
+                <input class="input" type="checkbox" />
                 <span class="checkbox"></span>
             </label>
             <h5>Permite la reproducción simultánea en varias pantallas</h5>
         </div>
         <br>
         <div class="bloque">
-            <h4> Control parental</h3>
+            <h4>
+                Control parental
+            </h3>
             <label class="label">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <span class="checkbox"></span>
             </label>
             <h5>Bloquea contenido para mayores de 16 años</h5>
         </div>
-  <br>
+        <br>
         <div class="bloque">
-            <h4> Cuenta preferida</h3>
+            <h4>
+                Cuenta preferida
+            </h3>
             <label class="label">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <span class="checkbox"></span>
             </label>
             <h5>Inicia sesión automáticamente con este perfil</h5>
         </div>
         <br>
         <div class="bloque">
-            <h4> Sonido MonoEstéreoEnvolventeDB</h3>
+            <h4>
+                Sonido MonoEstéreoEnvolventeDB
+            </h3>
             <label class="label">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <span class="checkbox"></span>
-                
             </label>
-            
-            <h5>Prueba calidad de audio</h5><audio src="audio/wrong-place-129242.mp3" controls>probar</audio>
-           
+            <h5>Prueba calidad de audio</h5>
+            <audio src="{% static 'audio/wrong-place-129242.mp3' %}"  controls>probar</audio>
         </div>
-        </div>
-        <br><br><br><br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
-</html>

@@ -1,210 +1,290 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/proyecto.css" />
-    <link rel="stylesheet" href="css/slyder.css">
-
-    <title>Document</title>
-  </head>
-
-  <body>
-    <!--MENÚ/NAVEGADOR-->
-    <div class="container-fluid text-white">
-      <div class="row" id="nav">
-        <div class="col">
-          <img src="png/logo-no-background.png" alt="" height="100px" />
-        </div>
-
-        <div class="col" id="listas">
-          <a href="index.html" class="nav1">Inicio</a>
-          <a href="peliculas.html" class="nav1">Películas</a>
-          <a href="series.html" class="nav1">Series</a>
-        </div>
-
-        <div class="col" id="buscador">
-          <img src="img/lupa.svg" alt="buscar" height="35px" />
-          <input type="text" name="search" id="search" placeholder="Buscar" />
-          <ul class="nav">
-            <li id="userlist">
-              <img src="img/user.svg" alt="preferencias" height="45px" id="user" />
-              <ul class="desplegable">
-                <li>
-                  <a href="sesion.html"
-                    ><img
-                      src="img/user2.svg"
-                      alt="ajustes de perfil"
-                      height="20px"
-                      class="pic"
-                    />Perfil</a
-                  >
-                </li>
-                <li>
-                  <a href=""
-                    ><img
-                      src="img/seguridad.svg"
-                      alt="ajustes de seguridad"
-                      height="20px"
-                      class="pic"
-                      id="user"
-                    />Seguridad</a
-                  >
-                </li>
-                <li>
-                  <a href="perfil.html"
-                    ><img
-                      src="img/settings.svg"
-                      alt="ajustes generales"
-                      height="20px"
-                      class="pic"
-                    />Ajustes</a
-                  >
-                </li>
-                <li>
-                  <a href="inicio.html"
-                    ><img
-                      src="img/sesion.svg"
-                      alt="cerrar la sesión"
-                      height="20px"
-                      class="pic"
-                    />Cerrar sesión</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/proyecto.css' %}">
+  <link rel="stylesheet" href="{% static 'css/slyder.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <!--MENÚ/NAVEGADOR-->
+  <div class="container-fluid   text-white">
+    <div class="row" id="nav">
+      <div class="col">
+        <img src="{% static 'png/logo-no-background.png' %}"
+             alt=""
+             height="100px"
+             width="">
+      </div>
+      <div class="col" id="listas">
+        <a href={% url 'vimad:index' %} class="nav1">Inicio</a>
+        <a href={% url 'vimad:peliculas' %} class="nav1">Películas</a>
+      </div>
+      <div class="col " id="buscador">
+        <img src="{% static 'img/lupa.svg' %}" alt="" height="35px" width="">
+        <input type="text" name="" id="search" placeholder="Buscar">
+        <ul class="nav">
+          <li id="userlist">
+            <img src="{% static 'img/user.svg' %}"
+                 alt=""
+                 height="45px"
+                 width=""
+                 id="user">
+            <ul class="desplegable">
+              <li>
+                <a href="{% url 'vimad:sesion' %}">
+                  <img src="{% static 'img/user2.svg' %}"
+                       alt=""
+                       height="20px"
+                       width=""
+                       class="pic">
+                Perfil</a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="{% static 'img/seguridad.svg' %}"
+                       alt=""
+                       height="20px"
+                       width=""
+                       class="pic"
+                       id="user">
+                Seguridad</a>
+              </li>
+              <li>
+                <a href="{% url 'vimad:perfil' %}">
+                  <img src="{% static 'img/settings.svg' %}"
+                       alt=""
+                       height="20px"
+                       width=""
+                       class="pic">
+                Ajustes</a>
+              </li>
+              <li>
+                <a href="{% url 'vimad:inicio' %}">
+                  <img src="{% static 'img/sesion.svg' %}"
+                       alt=""
+                       height="20px"
+                       width=""
+                       class="pic">
+                Cerrar sesión</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
-    <br /><br />
-
-
-
-
-
-    <div class="seccion">
-      <h2 class="titulos">Películas de drama</h2>
+  </div>
+  <br>
+  <br>
+  <div class="seccion">
+    <h2 class="titulos">Películas de drama</h2>
+  </div>
+  <div class="wrap">
+    <div class="scrollbar">
+      <div class="handle">
+        <div class="mousearea"></div>
+      </div>
     </div>
-    <div class="wrap">
-      <div class="scrollbar">
-          <div class="handle">
-              <div class="mousearea"></div>
-          </div>
-      </div>
-      
-      <div class="frame centered" data-slide="1" >
-        
-          <ul class="clearfix">
-              <li class="agrandar"> <img src="img/alcarras.jpg" alt="" class="seleccion" /></li>
-              <li><img src="img/bestas.jpg" alt="as bestas" class="seleccion" /></li>
-              <li> <img src="img/libelulas.jpg" alt="libelulas" class="seleccion" /></li>
-              <li> <a href="ficha1.html"><img src="img/cafarnaum.jpg" alt="cafarnaum" class="seleccion" /></a></li>
-              <li> <img src="img/xxy.jpg" alt="xxy" class="seleccion" /></li>
-              <li> <img src="img/river.jpg" alt="mystic river" class="seleccion" /></li>
-              <li> <img src="img/ojos.jpg" alt="te doy mis ojos" class="seleccion" /></li>
-              <li> <img src="img/bola.jpg" alt="el bola" class="seleccion" /></li>
-              <li> <img src="img/modelo.jpg" alt="modelo 77" class="seleccion" /></li>
-              <li><img src="img/lucha.jpg" alt="el club de la ucha" class="seleccion" /></li>
-              <li><img src="img/valle.jpg" alt="en busca del valle encantado" class="seleccion" /></li>
-          </ul>
-      </div>
-
-      <div class="controls center">
-          <button class="btn prev" data-slide="1"><i class="icon-chevron-left"></i> anterior</button>
-          <button class="btn next" data-slide="1">siguiente <i class="icon-chevron-right"></i></button>
-      </div>
-
-
-
-
-
-
+    <div class="frame centered" data-slide="1">
+      <ul class="clearfix">
+        <li class="agrandar">
+          <img src="{% static 'img/alcarras.jpg' %}" alt="" class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/bestas.jpg' %}" alt="as bestas" class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/libelulas.jpg' %}"
+               alt="libelulas"
+               class="seleccion" />
+        </li>
+        <li>
+          <a href="{% url 'vimad:ficha1' %}">
+            <img src="{% static 'img/cafarnaum.jpg' %}"
+                 alt="cafarnaum"
+                 class="seleccion" />
+          </a>
+        </li>
+        <li>
+          <img src="{% static 'img/xxy.jpg' %}" alt="xxy" class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/river.jpg' %}"
+               alt="mystic river"
+               class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/ojos.jpg' %}"
+               alt="te doy mis ojos"
+               class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/bola.jpg' %}" alt="el bola" class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/modelo.jpg' %}" alt="modelo 77" class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/lucha.jpg' %}"
+               alt="el club de la ucha"
+               class="seleccion" />
+        </li>
+        <li>
+          <img src="{% static 'img/valle.jpg' %}"
+               alt="en busca del valle encantado"
+               class="seleccion" />
+        </li>
+      </ul>
+    </div>
+    <div class="controls center">
+      <button class="btn prev" data-slide="1">
+        <i class="icon-chevron-left"></i> anterior
+      </button>
+      <button class="btn next" data-slide="1">
+        siguiente <i class="icon-chevron-right"></i>
+      </button>
+    </div>
     <div class="seccion">
       <h2 class="titulos">Películas españolas</h2>
     </div>
     <div class="wrap">
       <div class="scrollbar">
-          <div class="handle">
-              <div class="mousearea"></div>
-          </div>
-      </div>
-      
-      <div class="frame centered" data-slide="2">
-        
-          <ul class="clearfix">
-              <li> <img src="img/modelo.jpg" alt="modelo 77" class="seleccion" /></li><li><img src="img/reino.jpg" alt="el reino" class="seleccion" /></li><li> <img src="img/tinto.jpg" alt="el milagro de P.tinto" class="seleccion" /></li>
-              <li> <img src="img/bola.jpg" alt="el bola" class="seleccion" /></li>
-              <li> <img src="img/libelulas.jpg" alt="llibélulas" class="seleccion" /></li>
-              <li> <img src="img/ojos.jpg" alt="te doy mis ojos" class="seleccion" /></li>
-              <li> <img src="img/bestas.jpg" alt="As bestas" class="seleccion" /></li>
-              <li> <img src="img/alcarras.jpg" alt="Alcarras" class="seleccion" /></li>
-              <li> <img src="img/amanece.jpg" alt="amanece que no es poco" class="seleccion" /></li>
-              <li><img src="img/volver.jpg" alt="volver" class="seleccion" /></li>
-              <li><img src="img/educacion.jpg" alt="la mala educacion" class="seleccion" /></li>
-          </ul>
-      </div>
-
-      <div class="controls center">
-          <button class="btn prev" data-slide="2"><i class="icon-chevron-left"></i> anterior</button>
-          <button class="btn next" data-slide="2">siguiente <i class="icon-chevron-right"></i></button>
-      </div>
-
-      
-  </div>
-
-  <div class="seccion">
-    <h2 class="titulos">Películas de animacion</h2>
-  </div>
-  <div class="wrap">
-    <div class="scrollbar">
         <div class="handle">
-            <div class="mousearea"></div>
+          <div class="mousearea"></div>
         </div>
-    </div>
-    
-    <div class="frame centered" data-slide="1" >
-      
+      </div>
+      <div class="frame centered" data-slide="2">
         <ul class="clearfix">
-            <li class="agrandar"> <img src="img/bambi.jpg" alt="bambi" class="seleccion" /></li>
-            <li><img src="img/psiconautas.jpg" alt="psiconautas" class="seleccion" /></li>
-            <li> <img src="img/frozen.jpg" alt="frozen" class="seleccion" /></li>
-            <li> <img src="img/persepolis.jpg" alt="persepolis" class="seleccion" /></li>
-            <li> <img src="img/fantasia.jpg" alt="Fantasia 2000" class="seleccion" /></li>
-            <li> <img src="img/leon.jpg" alt="el rey leon" class="seleccion" /></li>
-            <li> <img src="img/walle.jpg" alt="walle" class="seleccion" /></li>
-            <li> <img src="img/vals.jpg" alt="vals con bashir" class="seleccion" /></li>
-            <li> <img src="img/metal.jpg" alt="modelo 77" class="seleccion" /></li>
-            <li><img src="img/bichos.jpg" alt="bichos" class="seleccion" /></li>
-            <li><img src="img/valle.jpg" alt="en busca del valle encantado" class="seleccion" /></li>
+          <li class="agrandar">
+            <img src="{% static 'img/modelo.jpg' %}" alt="modelo 77" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/reino.jpg' %}" alt="el reino" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/tinto.jpg' %}"
+                 alt="el milagro de P.tinto"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/bola.jpg' %}" alt="el bola" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/libelulas.jpg' %}"
+                 alt="llibélulas"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/ojos.jpg' %}"
+                 alt="te doy mis ojos"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/bestas.jpg' %}" alt="As bestas" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/alcarras.jpg' %}"
+                 alt="Alcarras"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/amanece.jpg' %}"
+                 alt="amanece que no es poco"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/volver.jpg' %}" alt="volver" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/educacion.jpg' %}"
+                 alt="la mala educacion"
+                 class="seleccion" />
+          </li>
         </ul>
+      </div>
+      <div class="controls center">
+        <button class="btn prev" data-slide="2">
+          <i class="icon-chevron-left"></i> anterior
+        </button>
+        <button class="btn next" data-slide="2">
+          siguiente <i class="icon-chevron-right"></i>
+        </button>
+      </div>
     </div>
-
-    <div class="controls center">
-        <button class="btn prev" data-slide="1"><i class="icon-chevron-left"></i> anterior</button>
-        <button class="btn next" data-slide="1">siguiente <i class="icon-chevron-right"></i></button>
+    <div class="seccion">
+      <h2 class="titulos">Películas de animacion</h2>
     </div>
-  
-
-<br><br><br><br>
-
-
-
-
-
-
-
-  <!-- Scripts -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/fontAwesome.js"></script>
-  <script src="js/slyder/next.js"></script>
-  <script src="js/slyder/sly.js"></script>
-  <script src="js/slyder/horisontal.js"></script>
-
-
-
-
-  </body>
-</html>
+    <div class="wrap">
+      <div class="scrollbar">
+        <div class="handle">
+          <div class="mousearea"></div>
+        </div>
+      </div>
+      <div class="frame centered" data-slide="1">
+        <ul class="clearfix">
+          <li class="agrandar">
+            <img src="{% static 'img/bambi.jpg' %}" alt="bambi" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/psiconautas.jpg' %}"
+                 alt="psiconautas"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/frozen.jpg' %}" alt="frozen" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/persepolis.jpg' %}"
+                 alt="persepolis"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/fantasia.jpg' %}"
+                 alt="Fantasia 2000"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/leon.jpg' %}" alt="el rey leon" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/walle.jpg' %}" alt="walle" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/vals.jpg' %}"
+                 alt="vals con bashir"
+                 class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/metal.jpg' %}" alt="modelo 77" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/bichos.jpg' %}" alt="bichos" class="seleccion" />
+          </li>
+          <li>
+            <img src="{% static 'img/valle.jpg' %}"
+                 alt="en busca del valle encantado"
+                 class="seleccion" />
+          </li>
+        </ul>
+      </div>
+      <div class="controls center">
+        <button class="btn prev" data-slide="1">
+          <i class="icon-chevron-left"></i> anterior
+        </button>
+        <button class="btn next" data-slide="1">
+          siguiente <i class="icon-chevron-right"></i>
+        </button>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <!-- Scripts -->
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/fontAwesome.js' %}"></script>
+      <script src="{% static 'js/slyder/next.js' %}"></script>
+      <script src="{% static 'js/slyder/sly.js' %}"></script>
+      <script src="{% static 'js/slyder/horisontal.js' %}"></script>
+    </body>

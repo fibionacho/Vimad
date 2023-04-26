@@ -5,6 +5,6 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('vimad_app/', include('vimad_app.urls')),
     path('admin/', admin.site.urls),
+    path('vimad/', include('vimad_app.urls', namespace='vimad')),
 ]
