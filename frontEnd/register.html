@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup 3</title>
+    <link rel="stylesheet" href="css/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- Slider main container -->
+    <div class="card">
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img src="png/logo-no-background.png" />
+            <h2>Bienvenido!</h2>
+            <h3>Empieza introduciendo tu correo</h3>
+            <input
+              spellcheck="false"
+              oninput="checkValid(event)"
+              type="text"
+              placeholder="ej. usuario@dominio.es"
+            />
+            <button disabled type="button" onclick="gotoSlide(1)">Siguiente</button>
+          </div>
+          <div class="swiper-slide">
+            <div className="image-wrapper">
+              <img src="png/corn.png" />
+            </div>
+            <h2>Seguridad</h2>
+            <h3>Introduce una contraseña segura</h3>
+            <input
+              oninput="checkValid(event)"
+              type="password"
+              placeholder="Tu contraseña"
+            />
+            <br>
+            <h3>Repite la contraseña</h3>
+            <input
+              oninput="checkValid(event)"
+              type="password"
+              placeholder="Repite tu contraseña"
+            />
+            <button disabled type="button" onclick="gotoSlide(2)">Siguiente</button>
+          </div>
+          <div class="swiper-slide">
+            <div className="image-wrapper">
+              <img src="png/entradas.png" />
+            </div>
+            <h2>Listo!</h2>
+            <h3>Un mundo de cine te espera</h3>
+            <button type="submit"><a href="index.html">Terminar</a></button>
+            <button class="secondary" onclick="restart()">Reiniciar</button>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/register.js"></script>
+  </body>
+</html>
