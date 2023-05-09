@@ -18,9 +18,14 @@
              id="password"
              type="password"
              placeholder="Contraseña" />
-      <button class="control" type="button">
-        <a href="{% url 'vimad:sesion' %}">LOGIN</a>
-      </button>
+
+        <button class="control" type="button">
+          <a href="{% url 'vimad:sesion' %}" class="control reg">SIGN IN </a>
+        </button>
+        <button class="control" type="button">
+          <a href="{% url 'vimad:register' %}" class="control reg" >SIGN UP</a>
+        </button>
+        
     </form>
   </div>
   <script type="text/javascript" src="{% static 'main.js' %}"></script>

@@ -50,7 +50,13 @@
     font-size: 16px;
     transition: 0.4s;
   }
-  
+  .reg{
+    text-align: center;
+    background-color: #5a4f79;
+    color: white;
+    height: 75%;
+    text-size-adjust: inherit;
+  }
   .login-card {
     width: 400px;
     padding: 100px 30px 64px;

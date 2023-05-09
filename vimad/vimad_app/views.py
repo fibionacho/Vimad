@@ -16,6 +16,10 @@ def index(request):
 def inicio(request):
     return render(request, 'vimad_app/inicio.html')
 
+#register
+def register(request):
+    return render(request, 'vimad_app/register.html')
+
 #cortos - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
 def cortos(request, genero=None):
     cortos_drama = Corto.objects.filter(genero='drama')

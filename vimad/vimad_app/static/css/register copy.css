@@ -1,0 +1,108 @@
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  font-family: "Euclid Circular A";
+  text-align: center;
+   background-image:url("https://image.ondacero.es/clipping/cmsimages02/2022/04/28/D948F66F-2F3A-4646-8EA6-FCB27D34AC50/fiesta-cine-2022-fechas-entradas-precios_98.jpg?crop=1920,1080,x0,y0&width=1900&height=1069&optimize=high&format=webply");
+   background-repeat:no-repeat;
+   background-size: 102%;
+    
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 600px;
+  padding: 80px 0 0;
+  border-radius: 10px;
+ background: transparent;
+  box-shadow:30px 30px 30px 30px rgb(0 0 0 / 100%);
+}
+
+img {
+  margin: 0 auto 30px;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+
+h2 {
+  color: #f9f9f9;
+  margin: 0 0 6px;
+}
+
+h3 {
+  color: #c4c3d6;
+  margin: 0 0 24px;
+  font-weight: 400;
+  font-size: 17px;
+  align-self: stretch;
+}
+
+input,
+button {
+  display: block;
+  height: 48px;
+  width: 270px;
+  margin: 0 40px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  text-align: center;
+}
+
+input {
+  border-width: 1px;
+  border-color: rgba(202, 18, 18, 0.16);
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.24);
+}
+
+button {
+  background: #9563ff;
+  color: #f9f9f9;
+  border: 0;
+  cursor: pointer;
+  transition: 0.175s;
+}
+
+button:disabled {
+  background: #e1e0e8;
+  color: #bbbac5;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: transparent;
+  color: #7e7d8a;
+}
+
+button[type="submit"] {
+  margin-bottom: 8px;
+}
+
+.swiper {
+  width: 100%;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
