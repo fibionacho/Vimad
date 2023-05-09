@@ -7,4 +7,4 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('vimad/', include('vimad_app.urls', namespace='vimad')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,6 @@
 from django.db import models
-from django_extensions.db.fields import AutoSlugField
+from django.utils.text import slugify
+from django.utils.crypto import get_random_string
 
 
 class Estudio(models.Model):
@@ -34,11 +35,19 @@ class Corto(models.Model):
     idioma=models.CharField(max_length=50)
     pais=models.CharField(max_length=50)
     sinopsis=models.TextField(max_length=300)
-    imagen=models.CharField(max_length=100, default='')
+    imagen = models.ImageField(upload_to='cortos/', default='cortos/default.png', blank=True)
     video=models.CharField(max_length=100, default='')
     director = models.ManyToManyField(Director, through='Dirige')
     actor = models.ManyToManyField(Actor, through='Actua')
     estudio = models.ForeignKey(Estudio, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.titulo)
+            while Corto.objects.filter(slug=self.slug).exists():
+                self.slug = "{}-{}".format(slugify(self.titulo), get_random_string(5))
+        super(Corto, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.titulo

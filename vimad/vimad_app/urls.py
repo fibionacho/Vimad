@@ -8,8 +8,17 @@ urlpatterns = [
     path('ficha1/', views.ficha1, name='ficha1'),
     path('indice/', views.index, name='index'),
     path('otroperfil/', views.otroperfil, name='otroperfil'),
-    path('peliculas/', views.peliculas, name='peliculas'),
+    path('cortos/', views.cortos, name='cortos'),
     path('perfil/', views.perfil, name='perfil'),
     path('sesion/', views.sesion, name='sesion'),
     path('video/', views.video, name='video'),
+    #path para una ficha cogiendo por slug:
+    path('ficha/<slug:slug>/', views.ficha, name='ficha'),
+
+    #path para una ficha unica:
+    #path('ficha2/', views.ficha2, name='ficha2'),
+
+    #path para una ficha cogiendo id por url:
+    #path('ficha2/<int:corto_id>/', views.ficha2, name='ficha2'),
+
 ]

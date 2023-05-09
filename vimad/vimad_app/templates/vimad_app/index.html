@@ -20,7 +20,7 @@
       </div>
       <div class="col" id="listas">
         <a href={% url 'vimad:index' %} class="nav1">Inicio</a>
-        <a href={% url 'vimad:peliculas' %} class="nav1">Películas</a>
+        <a href={% url 'vimad:cortos' %} class="nav1">Cortos</a>
       </div>
       <div class="col " id="buscador">
         <img src="{% static 'img/lupa.svg' %}" alt="" height="35px" width="">
@@ -79,7 +79,7 @@
   <br>
   <br>
   <div class="seccion">
-    <h2 class="titulos">Películas añadidas recientemente</h2>
+    <h2 class="titulos">Cortos añadidos recientemente</h2>
   </div>
   <div class="wrap">
     <div class="scrollbar">
@@ -145,63 +145,6 @@
       <button class="btn next" data-slide="1">
         siguiente <i class="icon-chevron-right"></i>
       </button>
-    </div>
-    <div class="seccion">
-      <h2 class="titulos">Series añadidas recientemente</h2>
-    </div>
-    <div class="wrap">
-      <div class="scrollbar">
-        <div class="handle">
-          <div class="mousearea"></div>
-        </div>
-      </div>
-      <div class="frame centered" data-slide="2">
-        <ul class="clearfix">
-          <li>
-            <img src="{% static 'img/blinders.jpg' %}" alt="peaky blinders" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/wire.jpg' %}" alt="" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/detective.jpg' %}" alt="" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/breaking.jpg' %}" alt="breaking bad" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/anillo.jpg' %}" alt="los anillos del poder" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/last.jpg' %}" alt="the last of us" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/criada.jpg' %}" alt="el cuento de la criada" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/mandalorian.jpg' %}" alt="the mandalorian" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/titanes.jpg' %}" alt="ataque a los titanes" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/serrano.jpg' %}" alt="los serrano" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/lost.jpg' %}" alt="perdidos" class="seleccion" />
-          </li>
-        </ul>
-        
-      </div>
-      <div class="controls center">
-        <button class="btn prev" data-slide="2">
-          <i class="icon-chevron-left"></i> anterior
-        </button>
-        <button class="btn next" data-slide="2">
-          siguiente <i class="icon-chevron-right"></i>
-        </button>
-      </div>
-    </div>
     <br>
     <br>
     <br>
