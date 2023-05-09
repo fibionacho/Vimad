@@ -78,6 +78,8 @@
   </div>
   <br>
   <br>
+
+  
   <div class="seccion">
     <h2 class="titulos">Cortos añadidos recientemente</h2>
   </div>
@@ -89,54 +91,16 @@
     </div>
     <div class="frame centered" data-slide="1">
       <ul class="clearfix">
-        <li class="agrandar">
-          <img src="{% static 'img/alcarras.jpg' %}" alt="" class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/bestas.jpg' %}" alt="as bestas" class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/libelulas.jpg' %}"
-               alt="libelulas"
-               class="seleccion">
-        </li>
-        <li>
-          <a href="{% url 'vimad:ficha1' %}">
-            <img src="{% static 'img/cafarnaum.jpg' %}"
-                 alt="cafarnaum"
-                 class="seleccion">
-          </a>
-        </li>
-        <li>
-          <img src="{% static 'img/avatar.jpg' %}" alt="avatar" class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/drive.jpg' %}"
-               alt="drive my car"
-               class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/ramona.jpg' %}" alt="ramona" class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/monstruos.jpg' %}"
-               alt="monstruos SA"
-               class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/modelo.jpg' %}" alt="modelo 77" class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/lucha.jpg' %}"
-               alt="el club de la ucha"
-               class="seleccion">
-        </li>
-        <li>
-          <img src="{% static 'img/valle.jpg' %}"
-               alt="en busca del valle encantado"
-               class="seleccion">
-        </li>
-      </ul>
+
+        <!--LISTADO DE CORTOS CON LINKS-->
+        {% for corto in cortos %}
+          <li class="agrandar">
+            <a href="{% url 'vimad:ficha' corto.slug %}">
+              <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" class="seleccion">
+            </a>
+          </li>
+        {% endfor %}
+
     </div>
     <div class="controls center">
       <button class="btn prev" data-slide="1">

@@ -7,25 +7,21 @@ from .models import Corto
 
 # Create your views here.
 
-#ficha1
-def ficha1(request):
-    return render(request, 'vimad_app/ficha1.html')
-
-#index
+#index - LISTADO DE CORTOS
 def index(request):
-    return render(request, 'vimad_app/index.html')
+    cortos = Corto.objects.all()
+    return render(request, 'vimad_app/index.html', {'cortos': cortos})
 
 #inicio
 def inicio(request):
     return render(request, 'vimad_app/inicio.html')
 
-#otroperfil
-def otroperfil(request):
-    return render(request, 'vimad_app/otroperfil.html')
-
-#cortos
-def cortos(request):
-    return render(request, 'vimad_app/cortos.html')
+#cortos - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
+def cortos(request, genero=None):
+    cortos_drama = Corto.objects.filter(genero='drama')
+    cortos_animacion = Corto.objects.filter(genero='animacion')
+    cortos_espanol = Corto.objects.filter(idioma='español')
+    return render(request, 'vimad_app/cortos.html', {'cortos_drama': cortos_drama, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
 
 #perfil
 def perfil(request):
@@ -38,20 +34,6 @@ def sesion(request):
 #video
 def video(request):
     return render(request, 'vimad_app/video.html')
-
-
-
-#pruebas
-
-#ficha2 - PRUEBA INCIAL SIN USAR MODELOS
-# def ficha2(request):
-#     return render(request, 'vimad_app/ficha2.html')
-
-#ficha2 - USO DE MODELOS PARA UNA FICHA UNICA
-# def ficha2(request):
-#     corto = Corto.objects.get(id=1)  
-#     context_dict = {'corto': corto}  
-#     return render(request, 'vimad_app/ficha2.html', context=context_dict)
 
 #ficha - USO DE MODELOS COGIENDO slug POR URL
 def ficha(request, slug):

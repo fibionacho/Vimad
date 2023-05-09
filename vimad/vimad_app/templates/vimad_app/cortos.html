@@ -78,6 +78,8 @@
   </div>
   <br>
   <br>
+
+  <!--DRAMA-->
   <div class="seccion">
     <h2 class="titulos">Cortos de drama</h2>
   </div>
@@ -88,55 +90,18 @@
       </div>
     </div>
     <div class="frame centered" data-slide="1">
+
+      <!--LISTADO-DRAMA-->
       <ul class="clearfix">
-        <li class="agrandar">
-          <img src="{% static 'img/alcarras.jpg' %}" alt="" class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/bestas.jpg' %}" alt="as bestas" class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/libelulas.jpg' %}"
-               alt="libelulas"
-               class="seleccion" />
-        </li>
-        <li>
-          <a href="{% url 'vimad:ficha1' %}">
-            <img src="{% static 'img/cafarnaum.jpg' %}"
-                 alt="cafarnaum"
-                 class="seleccion" />
-          </a>
-        </li>
-        <li>
-          <img src="{% static 'img/xxy.jpg' %}" alt="xxy" class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/river.jpg' %}"
-               alt="mystic river"
-               class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/ojos.jpg' %}"
-               alt="te doy mis ojos"
-               class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/bola.jpg' %}" alt="el bola" class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/modelo.jpg' %}" alt="modelo 77" class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/lucha.jpg' %}"
-               alt="el club de la ucha"
-               class="seleccion" />
-        </li>
-        <li>
-          <img src="{% static 'img/valle.jpg' %}"
-               alt="en busca del valle encantado"
-               class="seleccion" />
-        </li>
+        {% for corto in cortos_drama %}
+          <li class="agrandar">
+            <a href="{% url 'vimad:ficha' corto.slug %}">
+              <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" class="seleccion" />
+            </a>
+          </li>
+        {% endfor %}
       </ul>
+
     </div>
     <div class="controls center">
       <button class="btn prev" data-slide="1">
@@ -146,6 +111,9 @@
         siguiente <i class="icon-chevron-right"></i>
       </button>
     </div>
+
+
+    <!--ESPAÑOL-->
     <div class="seccion">
       <h2 class="titulos">Cortos españoles</h2>
     </div>
@@ -156,53 +124,18 @@
         </div>
       </div>
       <div class="frame centered" data-slide="2">
-        <ul class="clearfix">
+
+        <!--LISTADO-ESPAÑOL-->
+      <ul class="clearfix">
+        {% for corto in cortos_espanol %}
           <li class="agrandar">
-            <img src="{% static 'img/modelo.jpg' %}" alt="modelo 77" class="seleccion" />
+            <a href="{% url 'vimad:ficha' corto.slug %}">
+              <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" class="seleccion" />
+            </a>
           </li>
-          <li>
-            <img src="{% static 'img/reino.jpg' %}" alt="el reino" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/tinto.jpg' %}"
-                 alt="el milagro de P.tinto"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/bola.jpg' %}" alt="el bola" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/libelulas.jpg' %}"
-                 alt="llibélulas"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/ojos.jpg' %}"
-                 alt="te doy mis ojos"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/bestas.jpg' %}" alt="As bestas" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/alcarras.jpg' %}"
-                 alt="Alcarras"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/amanece.jpg' %}"
-                 alt="amanece que no es poco"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/volver.jpg' %}" alt="volver" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/educacion.jpg' %}"
-                 alt="la mala educacion"
-                 class="seleccion" />
-          </li>
-        </ul>
+        {% endfor %}
+      </ul>
+
       </div>
       <div class="controls center">
         <button class="btn prev" data-slide="2">
@@ -213,6 +146,9 @@
         </button>
       </div>
     </div>
+
+
+    <!--ANIMACION-->
     <div class="seccion">
       <h2 class="titulos">Cortos de animacion</h2>
     </div>
@@ -223,51 +159,18 @@
         </div>
       </div>
       <div class="frame centered" data-slide="1">
-        <ul class="clearfix">
+
+      <!--LISTADO-ANIMACION-->
+      <ul class="clearfix">
+        {% for corto in cortos_animacion %}
           <li class="agrandar">
-            <img src="{% static 'img/bambi.jpg' %}" alt="bambi" class="seleccion" />
+            <a href="{% url 'vimad:ficha' corto.slug %}">
+              <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" class="seleccion" />
+            </a>
           </li>
-          <li>
-            <img src="{% static 'img/psiconautas.jpg' %}"
-                 alt="psiconautas"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/frozen.jpg' %}" alt="frozen" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/persepolis.jpg' %}"
-                 alt="persepolis"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/fantasia.jpg' %}"
-                 alt="Fantasia 2000"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/leon.jpg' %}" alt="el rey leon" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/walle.jpg' %}" alt="walle" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/vals.jpg' %}"
-                 alt="vals con bashir"
-                 class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/metal.jpg' %}" alt="modelo 77" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/bichos.jpg' %}" alt="bichos" class="seleccion" />
-          </li>
-          <li>
-            <img src="{% static 'img/valle.jpg' %}"
-                 alt="en busca del valle encantado"
-                 class="seleccion" />
-          </li>
-        </ul>
+        {% endfor %}
+      </ul>
+
       </div>
       <div class="controls center">
         <button class="btn prev" data-slide="1">
@@ -281,6 +184,7 @@
       <br>
       <br>
       <br>
+
       <!-- Scripts -->
       <script src="{% static 'js/jquery.min.js' %}"></script>
       <script src="{% static 'js/fontAwesome.js' %}"></script>
