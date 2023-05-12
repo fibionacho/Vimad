@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/video.css">
-    <title>Reproductor</title>
-  </head>
-  <body>
-    <div id="videoContainer">
-      <video id="myVideo">
-        <source
-          src="video/Cafarnaúm - Trailer español (HD).mp4"
-          type="video/mp4"
-        />
-      <track src="sub.vtt" kind="subtitles" srclang="es" label="español"></track>
-      </video>
-      <span id="playPause"><i class="fa fa-play-circle">()</i></span>
-
-      <div id="controls">
-        <input
-          type="range"
-          class="range-css"
-          id="volume"
-          min="0"
-          max="1"
-          step="0.1"
-          value="1"
-        />
-        <span id="mute">mute</span>
-      </div>
-      <div id="progress-container">
-        <input type="range" class="range-css" id="progress" min="0" max="100" />
-        <span id="fullscreen">fullscreen</span>
-
-      </div>
-    </div>
-<br><br><br><br>
-    <script>
-        const video = document.getElementById("myVideo");
+const video = document.getElementById("myVideo");
         const playPause = document.getElementById("playPause");
         const progress = document.getElementById("progress");
         const volume = document.getElementById("volume");
@@ -95,8 +55,3 @@
             }
           }
         }
-
-      
-    </script>
-  </body>
-</html>

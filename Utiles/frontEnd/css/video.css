@@ -80,3 +80,7 @@ body{
 .hide{
     opacity: 0;
 }
+#videoContainer:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+  }

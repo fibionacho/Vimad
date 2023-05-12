@@ -1,0 +1,51 @@
+{% load static %}
+<div class="container-fluid text-white">
+    <div class="row" id="nav">
+        <div class="col">
+            <img src="{% static 'png/logo-no-background.png' %}" alt="" height="100px" />
+        </div>
+        <div class="col" id="listas">
+            <a href={% url 'vimad:index' %} class="nav1">Inicio</a>
+            <a href={% url 'vimad:cortos' %} class="nav1">Cortos</a>
+        </div>
+        <div class="col" id="buscador">
+            <img src="{% static 'img/lupa.svg' %}" alt="buscar" height="35px" />
+            <input type="text" name="search" id="search" placeholder="Buscar" />
+            <ul class="nav">
+                <li id="userlist">
+                    <img src="{% static 'img/user.svg' %}" alt="preferencias" height="45px" id="user" />
+                    <ul class="desplegable">
+                        <li>
+                            <a href="{% url 'vimad:sesion' %}">
+                                <img src="{% static 'img/user2.svg' %}" alt="ajustes de perfil" height="20px" class="pic" />
+                            Perfil</a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="{% static 'img/seguridad.svg' %}"
+                                     alt="ajustes de seguridad"
+                                     height="20px"
+                                     class="pic"
+                                     id="user" />
+                            Seguridad</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'vimad:perfil' %}">
+                                <img src="{% static 'img/settings.svg' %}"
+                                     alt="ajustes generales"
+                                     height="20px"
+                                     class="pic" />
+                            Ajustes</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'vimad:inicio' %}">
+                                <img src="{% static 'img/sesion.svg' %}" alt="cerrar la sesión" height="20px" class="pic" />
+                                Cerrar sesión
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
