@@ -5,6 +5,10 @@ from .models import Actor
 from .models import Director
 from .models import Corto
 
+
+from django.http import JsonResponse
+from django.db.models import Q
+
 # Create your views here.
 
 #index - LISTADO DE CORTOS
@@ -54,3 +58,29 @@ def ficha(request, slug):
     }
 
     return render(request, 'vimad_app/ficha.html', context)
+
+
+#BUSCADOR
+
+def buscar(request):
+    query = request.GET.get('q', '')
+    cortos = Corto.objects.filter(
+        Q(titulo__icontains=query) |
+        Q(genero__icontains=query) |
+        Q(idioma__icontains=query) |
+        Q(pais__icontains=query)
+    )
+
+    cortos_list = []
+    for corto in cortos:
+        cortos_list.append({
+            'id': corto.id,
+            'titulo': corto.titulo,
+            'genero': corto.genero,
+            'idioma': corto.idioma,
+            'pais': corto.pais,
+            'imagen': corto.imagen.url,
+            'slug': corto.slug,
+        })
+
+    return JsonResponse({'cortos': cortos_list})

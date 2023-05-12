@@ -12,5 +12,7 @@ urlpatterns = [
     path('sesion/', views.sesion, name='sesion'),
     path('video/', views.video, name='video'),
     #path para una ficha cogiendo por slug:
-    path('ficha/<slug:slug>/', views.ficha, name='ficha')
+    path('ficha/<slug:slug>/', views.ficha, name='ficha'),
+    #BARRA BUSCADORA
+    path('buscar/', views.buscar, name='buscar')
 ]

@@ -10,7 +10,10 @@
         </div>
         <div class="col" id="buscador">
             <img src="{% static 'img/lupa.svg' %}" alt="buscar" height="35px" />
-            <input type="text" name="search" id="search" placeholder="Buscar" />
+            <form>
+                <input type="text" name="search" id="search" placeholder="busqueda" />
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="buscar-btn">Buscar</button>
+            </form>
             <ul class="nav">
                 <li id="userlist">
                     <img src="{% static 'img/user.svg' %}" alt="preferencias" height="45px" id="user" />
