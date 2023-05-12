@@ -1,13 +1,16 @@
+{% extends 'vimad/base.html' %}
 {% load static %}
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SING UP</title>
+
+{% block title %}
+  <title>Sing up</title>
+{% endblock title %}
+
+{% block css %}
   <link rel="stylesheet" href="{% static 'css/register.css' %}" />
   <link rel="stylesheet" href="{% static 'css/registerfunctional.css' %}" />
-</head>
-<body>
+{% endblock css %}
+
+{% block contenido %}
   <!-- Slider main container -->
   <div class="card">
     <div class="swiper">
@@ -56,6 +59,9 @@
       <div class="swiper-pagination"></div>
     </div>
   </div>
+{% endblock contenido %}
+
+{% block js %}
   <script src="{% static 'js/registerfunctional.js' %}"></script>
   <script src="{% static 'js/register.js' %}"></script>
-</body>
+{% endblock js %}

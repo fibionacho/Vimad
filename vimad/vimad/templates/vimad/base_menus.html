@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %}
+        {% endblock title %}
+        <link rel="stylesheet" href="{% static 'css/proyecto.css' %}" media="all">
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}" media="all">
+        {% block css %}
+        {% endblock css %}
+    </head>
+    <body>
+        <!--MENÚ/NAVEGADOR-->
+        {% include 'vimad/includes/menu.html' %}
+        {% block contenido %}
+        {% endblock contenido %}
+        <!--footer-->
+        {% include 'vimad/includes/footer.html' %}
+        {% block js %}
+        {% endblock js %}
+    </body>
+</html>

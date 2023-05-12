@@ -1,12 +1,20 @@
+{% extends 'vimad/base.html' %}
 {% load static %}
 
-<head>
+{% block title %}
   <title>Login</title>
+{% endblock title %}
+
+{% block css %}
   <link rel="stylesheet" href="{% static 'css/inicio.css' %}" />
-</head>
-<body>
+{% endblock css %}
+
+{% block contenido %}
   <div class="login-card">
-    <img src="{% static 'png/logo-no-background.png' %}" height="" width="" alt=""/>
+    <img src="{% static 'png/logo-no-background.png' %}"
+         height=""
+         width=""
+         alt="" />
     <h2>Inicio de sesión</h2>
     <h3>Bienvenido a tu propio cine</h3>
     <form class="login-form">
@@ -18,15 +26,15 @@
              id="password"
              type="password"
              placeholder="Contraseña" />
-
-        <button class="control" type="button">
-          <a href="{% url 'vimad:sesion' %}" class="control reg">SIGN IN </a>
-        </button>
-        <button class="control" type="button">
-          <a href="{% url 'vimad:register' %}" class="control reg" >SIGN UP</a>
-        </button>
-        
+      <button class="control" type="button">
+        <a href="{% url 'vimad:sesion' %}" class="control reg">SIGN IN</a>
+      </button>
+      <button class="control" type="button">
+        <a href="{% url 'vimad:register' %}" class="control reg">SIGN UP</a>
+      </button>
     </form>
   </div>
-  <script type="text/javascript" src="{% static 'main.js' %}"></script>
-</body>
+{% endblock contenido %}
+
+{% block js %}
+{% endblock js %}

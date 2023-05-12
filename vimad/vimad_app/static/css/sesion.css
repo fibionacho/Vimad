@@ -1,5 +1,3 @@
-
-
 body{
     background: linear-gradient(to right, #20034e   ,#3909aa );
     font-family: sans-serif;
@@ -11,23 +9,22 @@ h1, h2, h3, h4, h5, p{
     padding: 0;
     margin: 0;
 }
+
 dl, dd, menu, ul{
     padding: 0%;
     margin: 0;
     list-style: none;
 }
+
 ol{
     list-style-type: decimal;
 }
-/*img{
-    max-width: 100%;
-    height: auto;
-    border-style: none;
-}*/
+
 a{
     text-decoration: none;
     color: inherit;
 }
+
 .hero{
     margin-top: 5%;
     margin-left: 5%;
@@ -38,15 +35,13 @@ a{
     position:relative
 }
 
-.slider{
-    
+.slider{   
     width: 100%;
     height: 65vh;
     position: relative;
     display: flex;
     transition: all 0.5s;
     overflow: hidden;
-   
 }
 
 .slider .slide{
@@ -77,12 +72,14 @@ a{
     background-repeat: no-repeat;
     background-position: left;
 }
+
 .slider .slide:nth-child(4){
     background: url("https://static.wikia.nocookie.net/breakingbad/images/7/77/MikeEnBB.webp/revision/latest?cb=20220820224511&path-prefix=es");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
 }
+
 .slider .slide:nth-child(5){
     background: url("https://static.wikia.nocookie.net/breakingbad/images/5/52/BB_S5A_Jesse_Pinkman.png/revision/latest?cb=20221026171345&path-prefix=es");
     background-size: cover;
@@ -94,16 +91,18 @@ a{
     width:60%;
     cursor:pointer;
 }
+
 #user-text{
     display: flex;
     justify-content: center;
 }
+
 #usuario{
     font-size: 200%;
     font-weight: bold;
     color: white;
-
 }
+
 .perfil{
 
     font-size: 200%;
@@ -112,8 +111,8 @@ a{
     padding-bottom: 200%;
     background-color: transparent;
     transition: all 0.5s;
-   
 }
+
 .perfil:hover{
 font-size: 400%;
 font-weight: bold;

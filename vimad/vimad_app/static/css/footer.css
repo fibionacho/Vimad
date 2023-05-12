@@ -1,5 +1,3 @@
-
-  
   section {
     position:static;
     left: 0;
@@ -30,9 +28,11 @@
   footer > img {
     margin-top: 5px;
   }
+
   .logofoot{
     width:10%;
   }
+  
   @media (width >= 620px) {
     footer {
       margin: 0 auto;

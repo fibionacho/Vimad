@@ -1,194 +1,25 @@
+{% extends 'vimad/base_menus.html' %}
 {% load static %}
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/proyecto.css' %}">
-  <link rel="stylesheet" href="{% static 'css/slyder.css' %}">
-  <title>Document</title>
-</head>
-<body>
-  <!--MENÚ/NAVEGADOR-->
-  <div class="container-fluid   text-white">
-    <div class="row" id="nav">
-      <div class="col">
-        <img src="{% static 'png/logo-no-background.png' %}"
-             alt=""
-             height="100px"
-             width="">
-      </div>
-      <div class="col" id="listas">
-        <a href={% url 'vimad:index' %} class="nav1">Inicio</a>
-        <a href={% url 'vimad:cortos' %} class="nav1">Cortos</a>
-      </div>
-      <div class="col " id="buscador">
-        <img src="{% static 'img/lupa.svg' %}" alt="" height="35px" width="">
-        <input type="text" name="" id="search" placeholder="Buscar">
-        <ul class="nav">
-          <li id="userlist">
-            <img src="{% static 'img/user.svg' %}"
-                 alt=""
-                 height="45px"
-                 width=""
-                 id="user">
-            <ul class="desplegable">
-              <li>
-                <a href="{% url 'vimad:sesion' %}">
-                  <img src="{% static 'img/user2.svg' %}"
-                       alt=""
-                       height="20px"
-                       width=""
-                       class="pic">
-                Perfil</a>
-              </li>
-              <li>
-                <a href="">
-                  <img src="{% static 'img/seguridad.svg' %}"
-                       alt=""
-                       height="20px"
-                       width=""
-                       class="pic"
-                       id="user">
-                Seguridad</a>
-              </li>
-              <li>
-                <a href="{% url 'vimad:perfil' %}">
-                  <img src="{% static 'img/settings.svg' %}"
-                       alt=""
-                       height="20px"
-                       width=""
-                       class="pic">
-                Ajustes</a>
-              </li>
-              <li>
-                <a href="{% url 'vimad:inicio' %}">
-                  <img src="{% static 'img/sesion.svg' %}"
-                       alt=""
-                       height="20px"
-                       width=""
-                       class="pic">
-                Cerrar sesión</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
 
+{% block title %}
+  <title>Cortos</title>
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/slyder.css' %}" />
+{% endblock css %}
+
+{% block contenido %}
   <!--DRAMA-->
-  <div class="seccion">
-    <h2 class="titulos">Cortos de drama</h2>
-  </div>
-  <div class="wrap">
-    <div class="scrollbar">
-      <div class="handle">
-        <div class="mousearea"></div>
-      </div>
-    </div>
-    <div class="frame centered" data-slide="1">
+  {% include 'vimad_app/includes/cortos_list_block.html' with data_slide="1" titulo="Cortos de drama" cortos=cortos_drama %}
+  <!--ESPAÑOL-->
+  {% include 'vimad_app/includes/cortos_list_block.html' with data_slide="2" titulo="Cortos en español" cortos=cortos_espanol %}
+  <!--ANIMACION-->
+  {% include 'vimad_app/includes/cortos_list_block.html' with data_slide="3" titulo="Cortos de animación" cortos=cortos_animacion %}
+{% endblock contenido %}
 
-      <!--LISTADO-DRAMA-->
-      <ul class="clearfix">
-        {% for corto in cortos_drama %}
-          <li class="agrandar">
-            <a href="{% url 'vimad:ficha' corto.slug %}">
-              <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" class="seleccion" />
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-
-    </div>
-    <div class="controls center">
-      <button class="btn prev" data-slide="1">
-        <i class="icon-chevron-left"></i> anterior
-      </button>
-      <button class="btn next" data-slide="1">
-        siguiente <i class="icon-chevron-right"></i>
-      </button>
-    </div>
-
-
-    <!--ESPAÑOL-->
-    <div class="seccion">
-      <h2 class="titulos">Cortos españoles</h2>
-    </div>
-    <div class="wrap">
-      <div class="scrollbar">
-        <div class="handle">
-          <div class="mousearea"></div>
-        </div>
-      </div>
-      <div class="frame centered" data-slide="2">
-
-        <!--LISTADO-ESPAÑOL-->
-      <ul class="clearfix">
-        {% for corto in cortos_espanol %}
-          <li class="agrandar">
-            <a href="{% url 'vimad:ficha' corto.slug %}">
-              <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" class="seleccion" />
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-
-      </div>
-      <div class="controls center">
-        <button class="btn prev" data-slide="2">
-          <i class="icon-chevron-left"></i> anterior
-        </button>
-        <button class="btn next" data-slide="2">
-          siguiente <i class="icon-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-
-
-    <!--ANIMACION-->
-    <div class="seccion">
-      <h2 class="titulos">Cortos de animacion</h2>
-    </div>
-    <div class="wrap">
-      <div class="scrollbar">
-        <div class="handle">
-          <div class="mousearea"></div>
-        </div>
-      </div>
-      <div class="frame centered" data-slide="1">
-
-      <!--LISTADO-ANIMACION-->
-      <ul class="clearfix">
-        {% for corto in cortos_animacion %}
-          <li class="agrandar">
-            <a href="{% url 'vimad:ficha' corto.slug %}">
-              <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" class="seleccion" />
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-
-      </div>
-      <div class="controls center">
-        <button class="btn prev" data-slide="1">
-          <i class="icon-chevron-left"></i> anterior
-        </button>
-        <button class="btn next" data-slide="1">
-          siguiente <i class="icon-chevron-right"></i>
-        </button>
-      </div>
-      <br>
-      <br>
-      <br>
-      <br>
-
-      <!-- Scripts -->
-      <script src="{% static 'js/jquery.min.js' %}"></script>
-      <script src="{% static 'js/fontAwesome.js' %}"></script>
-      <script src="{% static 'js/slyder/next.js' %}"></script>
-      <script src="{% static 'js/slyder/sly.js' %}"></script>
-      <script src="{% static 'js/slyder/horisontal.js' %}"></script>
-    </body>
+{% block js %}
+  <!--js scripts de index y cortos-->
+  {% include 'vimad_app/includes/js_scripts_cortos_index.html' %}
+{% endblock js %}

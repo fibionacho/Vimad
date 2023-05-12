@@ -1,6 +1,4 @@
 // ==================== horisontal.js ================
-
-
 jQuery(function($){
 	'use strict';
 

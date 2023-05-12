@@ -1,14 +1,11 @@
 /* Slyder*/
 .frame {
-   /* height: 250px;*/
-   height: 320px;
- 
+    height: 320px;
     line-height: 250px;
     overflow: hidden;
     margin-right: 3%;
     margin-left: 3%;
 }
-
 
 .frame ul {
     list-style: none;
@@ -32,12 +29,10 @@
     cursor: pointer;
 }
 
-
 .frame ul li.active {
     color: #fff;
     background: #a03232;
     border: 5px solid rgb(169, 30, 167);
-
 }
 
 /* Scrollbar */

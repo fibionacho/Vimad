@@ -1,0 +1,31 @@
+<div class="seccion">
+    <h2 class="titulos">{{ titulo }}</h2>
+</div>
+<div class="wrap">
+    <div class="scrollbar">
+        <div class="handle">
+            <div class="mousearea"></div>
+        </div>
+    </div>
+    <div class="frame centered" data-slide="{{ data_slide }}">
+        <ul class="clearfix">
+            {% for corto in cortos %}
+                <li class="agrandar">
+                    <a href="{% url 'vimad:ficha' corto.slug %}">
+                        <img src="{{ corto.imagen.url }}"
+                             alt="{{ corto.titulo }}"
+                             class="seleccion" />
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+        <div class="controls center">
+            <button class="btn prev" data-slide="{{ data_slide }}">
+                <i class="icon-chevron-left"></i> anterior
+            </button>
+            <button class="btn next" data-slide="{{ data_slide }}">
+                siguiente <i class="icon-chevron-right"></i>
+            </button>
+        </div>
+    </div>
