@@ -35,10 +35,9 @@ def sesion(request):
 
 #video
 def video(request, slug):
-    if slug is None:
-        return redirect('vimad:index')
-    
     corto = get_object_or_404(Corto, slug=slug)
+    if not corto.video:
+            return redirect('vimad:index')
     return render(request, 'vimad_app/video.html', {'video_url': corto.video.url})
 
 
