@@ -47,8 +47,9 @@
                 <br>
                 <h4>País: {{ corto.pais }}</h4>
                 <br>
-                <a href={% url 'vimad:video' %}>
+                <a href="{% url 'vimad:video' corto.slug %}">
                     <button>Reproducir</button>
+                </a>
                 </div>
             </div>
         </div>

@@ -12,8 +12,7 @@
 {% block contenido %}
   <div id="videoContainer">
     <video id="myVideo">
-      <source src="{% static 'video/Cafarnaúm - Trailer español (HD).mp4' %}"
-              type="video/mp4" />
+      <source src="{{ video_url }}" type="video/mp4" />
       <track src="sub.vtt" kind="subtitles" srclang="es" label="español">
     </track>
   </video>

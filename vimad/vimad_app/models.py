@@ -36,7 +36,7 @@ class Corto(models.Model):
     pais=models.CharField(max_length=50)
     sinopsis=models.TextField(max_length=300)
     imagen = models.ImageField(upload_to='cortos/', default='cortos/default.png', blank=True)
-    video=models.CharField(max_length=100, default='')
+    video = models.FileField(upload_to='videos/', default='', blank=True)
     director = models.ManyToManyField(Director, through='Dirige')
     actor = models.ManyToManyField(Actor, through='Actua')
     estudio = models.ForeignKey(Estudio, on_delete=models.CASCADE)

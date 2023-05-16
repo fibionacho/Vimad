@@ -1,12 +1,6 @@
-from django.shortcuts import render,  get_object_or_404
-from django.http import HttpResponse
-from .models import Estudio
-from .models import Actor
-from .models import Director
-from .models import Corto
-
-
-from django.http import JsonResponse
+from django.shortcuts import render,  get_object_or_404, redirect
+from django.http import HttpResponse, JsonResponse
+from .models import Estudio, Corto, Director, Actor
 from django.db.models import Q
 
 # Create your views here.
@@ -40,8 +34,13 @@ def sesion(request):
     return render(request, 'vimad_app/sesion.html')
 
 #video
-def video(request):
-    return render(request, 'vimad_app/video.html')
+def video(request, slug):
+    if slug is None:
+        return redirect('vimad:index')
+    
+    corto = get_object_or_404(Corto, slug=slug)
+    return render(request, 'vimad_app/video.html', {'video_url': corto.video.url})
+
 
 #ficha - USO DE MODELOS COGIENDO slug POR URL
 def ficha(request, slug):
