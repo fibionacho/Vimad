@@ -7,7 +7,7 @@ from django.db.models import Q
 
 #index - LISTADO DE CORTOS
 def index(request):
-    cortos = Corto.objects.all().order_by('-fecha_pagina')
+    cortos = Corto.objects.all().order_by('-id')
     return render(request, 'vimad_app/index.html', {'cortos': cortos})
 
 #inicio

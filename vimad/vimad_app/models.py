@@ -41,7 +41,6 @@ class Corto(models.Model):
     actor = models.ManyToManyField(Actor, through='Actua')
     estudio = models.ForeignKey(Estudio, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
-    fecha_pagina=models.DateField(null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
