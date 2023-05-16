@@ -1,13 +1,13 @@
 from django.shortcuts import render,  get_object_or_404, redirect
-from django.http import HttpResponse, JsonResponse
-from .models import Estudio, Corto, Director, Actor
+from django.http import JsonResponse
+from .models import Corto 
 from django.db.models import Q
 
 # Create your views here.
 
 #index - LISTADO DE CORTOS
 def index(request):
-    cortos = Corto.objects.all()
+    cortos = Corto.objects.all().order_by('-fecha_pagina')
     return render(request, 'vimad_app/index.html', {'cortos': cortos})
 
 #inicio
@@ -20,9 +20,9 @@ def register(request):
 
 #cortos - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
 def cortos(request, genero=None):
-    cortos_drama = Corto.objects.filter(genero='drama')
-    cortos_animacion = Corto.objects.filter(genero='animacion')
-    cortos_espanol = Corto.objects.filter(idioma='español')
+    cortos_drama = list(Corto.objects.filter(genero='drama').order_by('?'))
+    cortos_animacion = list(Corto.objects.filter(genero='animacion').order_by('?'))
+    cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))
     return render(request, 'vimad_app/cortos.html', {'cortos_drama': cortos_drama, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
 
 #perfil
