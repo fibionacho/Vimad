@@ -15,7 +15,8 @@ body {
   text-align: center;
    background-image:url("https://image.ondacero.es/clipping/cmsimages02/2022/04/28/D948F66F-2F3A-4646-8EA6-FCB27D34AC50/fiesta-cine-2022-fechas-entradas-precios_98.jpg?crop=1920,1080,x0,y0&width=1900&height=1069&optimize=high&format=webply");
    background-repeat:no-repeat;
-   background-size: 102%;
+   background-size: cover;
+   
     
 }
 

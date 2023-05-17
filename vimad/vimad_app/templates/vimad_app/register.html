@@ -6,12 +6,13 @@
 {% endblock title %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+<link rel="stylesheet" href="{% static 'css/register.css' %}" />
   <link rel="stylesheet" href="{% static 'css/registerfunctional.css' %}" />
 {% endblock css %}
 
 {% block contenido %}
   <!-- Slider main container -->
+  <div class="bground">
   <div class="card">
     <div class="swiper">
       <!-- Additional required wrapper -->
@@ -59,6 +60,7 @@
       <div class="swiper-pagination"></div>
     </div>
   </div>
+</div>
 {% endblock contenido %}
 
 {% block js %}
