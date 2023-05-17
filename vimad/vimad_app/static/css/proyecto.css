@@ -70,6 +70,9 @@ ul, ol {
 .nav > li {
     float:none;
 }
+.nav li{
+   right: 4rem;
+}
 
 #userlist{
     margin: 0;
@@ -149,16 +152,16 @@ h1{
 }
 
 .seleccion{
-   height: 320px;
-    width: 250px;
+   height: 100%;
+    width: 100%;
     
     display: inline-block;
     transition: all 0.5s;
 }
 
 .seleccion:hover{
-    height: 325px;
-    width: 255px;
+    height:105%;
+    width: 105%;
    /* z-index: 200;*/
     transition: all 0.5s; 
 }

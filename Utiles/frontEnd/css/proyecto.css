@@ -15,7 +15,7 @@ body {
     display: flex;
     margin-left: 5px;
     
-    /*justify-items: center;*/
+
 }
 
 div.container-fluid div{
@@ -87,23 +87,28 @@ ul, ol {
 .nav > li {
     float:none;
 }
+.nav li{
+   right: 4rem;
+}
 #userlist{
-    margin: 0;
+   
     padding: 0;
     justify-content: center;
-    padding-left: 3%;
+  
+    
 }
 .nav li a {
-    
+
     color:#fff;
     text-decoration:none;
     padding:10px 12px;
     display:flex;
     justify-content: baseline;
-    padding-left: 1%;
+    
 }
 .desplegable{
-    text-align: center;
+
+    
 }
 .nav li a:hover {
     background-color:#434343;
@@ -113,6 +118,7 @@ ul, ol {
     display:none;
     position:absolute;
     min-width:150px;
+    
 }
 .nav li:hover > ul {
     display:block;
@@ -162,17 +168,15 @@ h1{
 
 
 .seleccion{
-   height: 320px;
-    width: 250px;
-    
+    width: 100%;
+    height: 100%;
     display: inline-block;
     transition: all 0.5s;
 }
 .seleccion:hover{
-    height: 325px;
-    width: 255px;
-   /* z-index: 200;*/
-    transition: all 0.5s;
+    height: 105%;
+    width: 105%;
+    transition: all 0.75s;
    
     
 }
@@ -196,7 +200,10 @@ h1{
 .titulos{
     color: #fff;
 }
-
+.clearfix li{
+    width: 50%;
+    height: 50vw;
+}
 
 li div {
   position: relative;
@@ -291,3 +298,7 @@ li div {
     z-index: 0;
 }
 
+.clearfix{
+    width: 50%;
+    height: 50vw;
+}
