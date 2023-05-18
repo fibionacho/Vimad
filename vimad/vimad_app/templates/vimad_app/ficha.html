@@ -1,14 +1,11 @@
 {% extends 'vimad/base_menus.html' %}
 {% load static %}
-
 {% block title %}
     <title>{{ corto.titulo }}</title>
 {% endblock title %}
-
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/ficha.css' %}" />
 {% endblock css %}
-
 {% block contenido %}
     <div class="bloque">
         <div class="card">
@@ -47,13 +44,20 @@
                 <br>
                 <h4>País: {{ corto.pais }}</h4>
                 <br>
-                <a href="{% url 'vimad:video' corto.slug %}">
-                    <button>Reproducir</button>
-                </a>
-                </div>
+                <!--SE REPRODUCE EL VIDEO SI HAY SESION-->
+                {% if user.is_authenticated %}
+                    <a href="{% url 'vimad:video' corto.slug %}">
+                        <button>Reproducir</button>
+                    </a>
+                {% else %}
+                    <a href="{% url 'vimad:inicio' %}">
+                        <button>Reproducir</button>
+                    </a>
+                {% endif %}
+                <!--FIN DEL CONDICIONAL-->
             </div>
         </div>
-    {% endblock contenido %}
-    
-    {% block js %}
-    {% endblock js %}
+    </div>
+{% endblock contenido %}
+{% block js %}
+{% endblock js %}

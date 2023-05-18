@@ -17,6 +17,17 @@
          width=""
          alt="" />
     <h2>Inicio de sesión</h2>
+
+<!----><!----><!----><!----><!----><!----><!----><!---->
+{{error}}
+
+  <form action=""{% url 'vimad_app:inicio' %}" " method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" class="control">LOG IN</button>
+  </form>
+<!----><!----><!----><!----><!----><!----><!----><!---->
+
     <h3>Bienvenido a tu propio cine</h3>
     <form class="login-form">
       <div class="username">
@@ -28,13 +39,13 @@
              type="password"
              placeholder="Contraseña" />
       <button class="control" type="button">
-        <a href="{% url 'vimad:sesion' %}" class="control reg">SIGN IN</a>
+        <a href="{% url 'vimad:sesion' %}" class="control reg">LOG IN</a>
       </button>
       <button class="control" type="button">
         <a href="{% url 'vimad:register' %}" class="control reg">SIGN UP</a>
       </button>
     </form>
-  </div>
+</div>
 </div> 
 {% endblock contenido %}
 

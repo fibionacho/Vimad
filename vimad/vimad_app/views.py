@@ -1,47 +1,53 @@
 from django.shortcuts import render,  get_object_or_404, redirect
 from django.http import JsonResponse
-from .models import Corto 
+from .models import Corto
+from django.db import IntegrityError
 from django.db.models import Q
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 
-# Create your views here.
+# index - LISTADO DE CORTOS
 
-#index - LISTADO DE CORTOS
+
 def index(request):
     cortos = Corto.objects.all().order_by('-id')
     return render(request, 'vimad_app/index.html', {'cortos': cortos})
 
-#inicio
-def inicio(request):
-    return render(request, 'vimad_app/inicio.html')
+# cortos - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
 
-#register
-def register(request):
-    return render(request, 'vimad_app/register.html')
 
-#cortos - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
 def cortos(request, genero=None):
     cortos_drama = list(Corto.objects.filter(genero='drama').order_by('?'))
-    cortos_animacion = list(Corto.objects.filter(genero='animacion').order_by('?'))
+    cortos_animacion = list(Corto.objects.filter(
+        genero='animacion').order_by('?'))
     cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))
     return render(request, 'vimad_app/cortos.html', {'cortos_drama': cortos_drama, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
 
-#perfil
+# perfil
+
+
 def perfil(request):
     return render(request, 'vimad_app/perfil.html')
 
-#sesion
+# sesion
+
+
 def sesion(request):
     return render(request, 'vimad_app/sesion.html')
 
-#video
+# video
+
+
 def video(request, slug):
     corto = get_object_or_404(Corto, slug=slug)
     if not corto.video:
-            return redirect('vimad:index')
+        return redirect('vimad:index')
     return render(request, 'vimad_app/video.html', {'video_url': corto.video.url})
 
+# ficha - USO DE MODELOS COGIENDO slug POR URL
 
-#ficha - USO DE MODELOS COGIENDO slug POR URL
+
 def ficha(request, slug):
     corto = get_object_or_404(Corto, slug=slug)
     directores = corto.director.all()
@@ -57,8 +63,8 @@ def ficha(request, slug):
 
     return render(request, 'vimad_app/ficha.html', context)
 
+# BUSCADOR
 
-#BUSCADOR
 
 def buscar(request):
     query = request.GET.get('q', '')
@@ -82,3 +88,56 @@ def buscar(request):
         })
 
     return JsonResponse({'cortos': cortos_list})
+
+# register
+
+
+def register(request):
+    if request.method == 'GET':
+        return render(request, 'vimad_app/register.html', {
+            'form': UserCreationForm
+        })
+    else:
+        if request.POST['password1'] == request.POST['password2']:
+            try:
+                user = User.objects.create_user(username=request.POST['username'],
+                                                password=request.POST['password1'])
+                user.save()
+                login(request, user)
+                return redirect('vimad:index')
+            except IntegrityError:
+                return render(request, 'vimad_app/register.html', {
+                    'form': UserCreationForm,
+                    "error": 'Username already exists',
+                })
+        return render(request, 'vimad_app/register.html', {
+            'form': UserCreationForm,
+            "error": 'Password do not match',
+        })
+
+# login
+
+
+def inicio(request):
+    if request.method == 'GET':
+        return render(request, 'vimad_app/inicio.html', {
+            'form': AuthenticationForm
+        })
+    else:
+        user = authenticate(
+            request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, 'vimad_app/inicio.html', {
+                'form': AuthenticationForm,
+                'error': 'Username or password is incorrect'
+            })
+        else:
+            login(request, user)
+            return redirect('vimad:index')
+
+# logout
+
+
+def signout(request):
+    logout(request)
+    return redirect('vimad:inicio')

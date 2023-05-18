@@ -22,43 +22,67 @@
                          width=""
                          id="user">
                     <ul class="desplegable">
-                        <li>
-                            <a href="{% url 'vimad:sesion' %}">
-                                <img src="{% static 'svg/user2.svg' %}"
-                                     alt=""
-                                     height="20px"
-                                     width=""
-                                     class="pic">
-                            Perfil</a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="{% static 'svg/seguridad.svg' %}"
-                                     alt=""
-                                     height="20px"
-                                     width=""
-                                     class="pic"
-                                     id="user">
-                            Seguridad</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'vimad:perfil' %}">
-                                <img src="{% static 'svg/settings.svg' %}"
-                                     alt=""
-                                     height="20px"
-                                     width=""
-                                     class="pic">
-                            Ajustes</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'vimad:inicio' %}">
-                                <img src="{% static 'svg/sesion.svg' %}"
-                                     alt=""
-                                     height="20px"
-                                     width=""
-                                     class="pic">
-                            Cerrar sesión</a>
-                        </li>
+                        <!--COMPRUEBO SI HAY SESION-->
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'vimad:sesion' %}">
+                                    <img src="{% static 'svg/user2.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic">
+                                Perfil</a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="{% static 'svg/seguridad.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic"
+                                         id="user">
+                                Seguridad</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'vimad:perfil' %}">
+                                    <img src="{% static 'svg/settings.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic">
+                                Ajustes</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'vimad:logout' %}">
+                                    <img src="{% static 'svg/sesion.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic">
+                                Cerrar sesión</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="{% url 'vimad:inicio' %}">
+                                    <img src="{% static 'svg/user2.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic">
+                                Iniciar sesión</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'vimad:register' %}">
+                                    <img src="{% static 'svg/seguridad.svg' %}"
+                                         alt=""
+                                         height="20px"
+                                         width=""
+                                         class="pic"
+                                         id="user">
+                                Registrarse</a>
+                            </li>
+                        {% endif %}
+                        <!--FIN DEL CONDICIONAL-->
                     </ul>
                 </li>
             </ul>
