@@ -3,7 +3,7 @@
     <div class="row" id="nav">
         <div class="col">
             <img src="{% static 'png/logo-no-background.png' %}"
-                 alt=""
+                 alt="vimad logo"
                  height="100px"
                  width="">
         </div>
@@ -12,12 +12,12 @@
             <a href={% url 'vimad:cortos' %} class="nav1">Cortos</a>
         </div>
         <div class="col " id="buscador">
-            <img src="{% static 'svg/lupa.svg' %}" alt="" height="35px" width="">
-            <input type="text" name="" id="search" placeholder="Buscar">
+            <img src="{% static 'svg/lupa.svg' %}" alt="buscador" height="35px" width="">
+            <input type="text" name="buscador" id="search" placeholder="Buscar">
             <ul class="nav">
                 <li id="userlist">
                     <img src="{% static 'svg/user.svg' %}"
-                         alt=""
+                         alt="user"
                          height="45px"
                          width=""
                          id="user">
@@ -27,7 +27,7 @@
                             <li>
                                 <a href="{% url 'vimad:sesion' %}">
                                     <img src="{% static 'svg/user2.svg' %}"
-                                         alt=""
+                                         alt="perfil"
                                          height="20px"
                                          width=""
                                          class="pic">
@@ -36,7 +36,7 @@
                             <li>
                                 <a href="">
                                     <img src="{% static 'svg/seguridad.svg' %}"
-                                         alt=""
+                                         alt="seguridad"
                                          height="20px"
                                          width=""
                                          class="pic"
@@ -46,7 +46,7 @@
                             <li>
                                 <a href="{% url 'vimad:perfil' %}">
                                     <img src="{% static 'svg/settings.svg' %}"
-                                         alt=""
+                                         alt="ajustes"
                                          height="20px"
                                          width=""
                                          class="pic">
@@ -55,7 +55,7 @@
                             <li>
                                 <a href="{% url 'vimad:logout' %}">
                                     <img src="{% static 'svg/sesion.svg' %}"
-                                         alt=""
+                                         alt="cerrar sesion"
                                          height="20px"
                                          width=""
                                          class="pic">
@@ -65,7 +65,7 @@
                             <li>
                                 <a href="{% url 'vimad:inicio' %}">
                                     <img src="{% static 'svg/user2.svg' %}"
-                                         alt=""
+                                         alt="iniciar sesion"
                                          height="20px"
                                          width=""
                                          class="pic">
@@ -74,7 +74,7 @@
                             <li>
                                 <a href="{% url 'vimad:register' %}">
                                     <img src="{% static 'svg/seguridad.svg' %}"
-                                         alt=""
+                                         alt="registrarse"
                                          height="20px"
                                          width=""
                                          class="pic"
