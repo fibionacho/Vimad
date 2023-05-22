@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.crypto import get_random_string
 
-
 class Estudio(models.Model):
     nombre=models.CharField(max_length=50)
     fec_fundacion=models.DateField()

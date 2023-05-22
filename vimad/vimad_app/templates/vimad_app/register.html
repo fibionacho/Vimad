@@ -67,7 +67,10 @@
 
 <form action=""{% url 'vimad_app:register' %}" " method="POST">
     {%csrf_token%}
-    {{form.as_p}}
+    {{ form.username }}
+    {{ form.email }}
+    {{ form.password1 }}
+    {{ form.password2 }}
     <button type="submit">Signup</button>
 </form>
 <!----><!----><!----><!----><!----><!----><!----><!---->
