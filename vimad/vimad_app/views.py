@@ -30,19 +30,19 @@ def cortos(request, genero=None):
 
 # perfil
 
-@login_required
+@login_required(login_url='vimad:inicio')
 def perfil(request):
     return render(request, 'vimad_app/perfil.html')
 
 # sesion
 
-@login_required
+@login_required(login_url='vimad:inicio')
 def sesion(request):
     return render(request, 'vimad_app/sesion.html')
 
 # video
 
-@login_required
+@login_required(login_url='vimad:inicio')
 def video(request, slug):
     corto = get_object_or_404(Corto, slug=slug)
     if not corto.video:
@@ -97,47 +97,53 @@ def buscar(request):
 
 
 def register(request):
-    if request.method == 'GET':
-        return render(request, 'vimad_app/register.html', {
-            'form': CreateUserForm
-        })
+    if request.user.is_authenticed:
+        return redirect('vimad:index')
     else:
-        if request.POST['password1'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(username=request.POST['username'],
-                                                password=request.POST['password1'])
-                user.save()
-                login(request, user)
-                return redirect('vimad:index')
-            except IntegrityError:
-                return render(request, 'vimad_app/register.html', {
-                    'form': CreateUserForm,
-                    "error": 'Username already exists',
-                })
-        return render(request, 'vimad_app/register.html', {
-            'form': CreateUserForm,
-            "error": 'Password do not match',
-        })
+        if request.method == 'GET':
+            return render(request, 'vimad_app/register.html', {
+                'form': CreateUserForm
+            })
+        else:
+            if request.POST['password1'] == request.POST['password2']:
+                try:
+                    user = User.objects.create_user(username=request.POST['username'],
+                                                    password=request.POST['password1'])
+                    user.save()
+                    login(request, user)
+                    return redirect('vimad:index')
+                except IntegrityError:
+                    return render(request, 'vimad_app/register.html', {
+                        'form': CreateUserForm,
+                        "error": 'Username already exists',
+                    })
+            return render(request, 'vimad_app/register.html', {
+                'form': CreateUserForm,
+                "error": 'Password do not match',
+            })
 
 # login
 
 
 def inicio(request):
-    if request.method == 'GET':
-        return render(request, 'vimad_app/inicio.html', {
-            'form': CustomAuthenticationForm
-        })
+    if request.user.is_authenticed:
+        return redirect('vimad:index')
     else:
-        user = authenticate(
-            request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
+        if request.method == 'GET':
             return render(request, 'vimad_app/inicio.html', {
-                'form': CustomAuthenticationForm,
-                'error': 'Username or password is incorrect'
+                'form': CustomAuthenticationForm
             })
         else:
-            login(request, user)
-            return redirect('vimad:index')
+            user = authenticate(
+                request, username=request.POST['username'], password=request.POST['password'])
+            if user is None:
+                return render(request, 'vimad_app/inicio.html', {
+                    'form': CustomAuthenticationForm,
+                    'error': 'Username or password is incorrect'
+                })
+            else:
+                login(request, user)
+                return redirect('vimad:index')
 
 # logout
 
