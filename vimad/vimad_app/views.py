@@ -97,7 +97,7 @@ def buscar(request):
 
 
 def register(request):
-    if request.user.is_authenticed:
+    if request.user.is_authenticated:
         return redirect('vimad:index')
     else:
         if request.method == 'GET':
@@ -126,7 +126,7 @@ def register(request):
 
 
 def inicio(request):
-    if request.user.is_authenticed:
+    if request.user.is_authenticated:
         return redirect('vimad:index')
     else:
         if request.method == 'GET':

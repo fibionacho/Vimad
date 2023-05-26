@@ -8,5 +8,5 @@ class CreateUserForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 class CustomAuthenticationForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class' : 'control','placeholder':'Usuario', 'spellcheck':'false'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class' : 'control','placeholder': 'Contraseña','id':'password','type':'password' }))
