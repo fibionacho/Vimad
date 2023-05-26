@@ -12,6 +12,8 @@
 
 {% block contenido %}
   <!-- Slider main container -->
+  <form action=""{% url 'vimad_app:register' %}" " method="POST">
+    {%csrf_token%}
   <div class="bground">
   <div class="card">
     <div class="swiper">
@@ -22,28 +24,26 @@
           <img src="{% static 'png/logo-no-background.png' %}" alt="vimad logo"/>
           <h2>Bienvenido!</h2>
           <h3>Empieza introduciendo tu correo</h3>
-          <input spellcheck="false"
-                 oninput="checkValid(event)"
-                 type="text"
-                 placeholder="ej. usuario@dominio.es" />
+                 {{ form.email }}
+          <h3>Y el nombre de usuario que deseas</h3>
+          {{ form.username }}
           <button disabled type="button" onclick="gotoSlide(1)">Siguiente</button>
         </div>
+
+
         <div class="swiper-slide">
           <div className="image-wrapper">
             <img src="{% static 'png/corn.png' %}" alt="palomitas"/>
           </div>
           <h2>Seguridad</h2>
           <h3>Introduce una contraseña segura</h3>
-          <input oninput="checkValid(event)"
-                 type="password"
-                 placeholder="Tu contraseña" />
+             {{ form.password1 }}
           <br>
           <h3>Repite la contraseña</h3>
-          <input oninput="checkValid(event)"
-                 type="password"
-                 placeholder="Repite tu contraseña" />
+            {{ form.password2 }}
           <button disabled type="button" onclick="gotoSlide(2)">Siguiente</button>
         </div>
+        
         <div class="swiper-slide">
           <div className="image-wrapper">
             <img src="{% static 'png/entradas.png' %}" alt="tickets"/>
@@ -61,19 +61,12 @@
     </div>
   </div>
 </div>
+</form>
 
-<!----><!----><!----><!----><!----><!----><!----><!---->
 {{error}}
 
-<form action=""{% url 'vimad_app:register' %}" " method="POST">
-    {%csrf_token%}
-    {{ form.username }}
-    {{ form.email }}
-    {{ form.password1 }}
-    {{ form.password2 }}
-    <button type="submit">Signup</button>
-</form>
-<!----><!----><!----><!----><!----><!----><!----><!---->
+
+
 
 {% endblock contenido %}
 

@@ -3,6 +3,22 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class CreateUserForm(UserCreationForm):
+    email = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'ej. usuario@dominio.es','oninput' : 'checkValid(event)', 'spellcheck':'false'}),
+    )
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'ej. usuario','oninput' : 'checkValid(event)', 'spellcheck':'false'}),
+    )
+
+    password1 = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'Tu contraseña','oninput' : 'checkValid(event)', 'type':'password'}),
+    )
+
+    password2 = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder':'Repite tu contraseña','oninput' : 'checkValid(event)', 'type':'password'}),
+    )
+
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
