@@ -1,75 +1,62 @@
 {% extends 'vimad/base.html' %}
 {% load static %}
-
 {% block title %}
   <title>Sing up</title>
 {% endblock title %}
-
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/register.css' %}" />
   <link rel="stylesheet" href="{% static 'css/registerfunctional.css' %}" />
 {% endblock css %}
-
 {% block contenido %}
   <!-- Slider main container -->
   <form action=""{% url 'vimad_app:register' %}" " method="POST">
-    {%csrf_token%}
-  <div class="bground">
-  <div class="card">
-    <div class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <img src="{% static 'png/logo-no-background.png' %}" alt="vimad logo"/>
-          <h2>Bienvenido!</h2>
-          <h3>Empieza introduciendo tu correo</h3>
-                 {{ form.email }}
-          <h3>Y el nombre de usuario que deseas</h3>
-          {{ form.username }}
-          <button disabled type="button" onclick="gotoSlide(1)">Siguiente</button>
-        </div>
-
-
-        <div class="swiper-slide">
-          <div className="image-wrapper">
-            <img src="{% static 'png/corn.png' %}" alt="palomitas"/>
+    {% csrf_token %}
+    <div class="bground">
+      <div class="card">
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img src="{% static 'png/logo-no-background.png' %}" alt="vimad logo" />
+              <h2>Bienvenido!</h2>
+              <h3>Empieza introduciendo tu correo</h3>
+              {{ form.email }}
+              <br>
+              <h3>Y el nombre de usuario que deseas</h3>
+              {{ form.username }}
+              <button disabled type="button" onclick="gotoSlide(1)">Siguiente</button><br>
+             {{ error }}
+            </div>
+            <div class="swiper-slide">
+              <div className="image-wrapper">
+                <img src="{% static 'png/corn.png' %}" alt="palomitas" />
+              </div>
+              <h2>Seguridad</h2>
+              <h3>Introduce una contraseña segura</h3>
+              {{ form.password1 }}
+              <br>
+              <h3>Repite la contraseña</h3>
+              {{ form.password2 }}
+              <button disabled type="button" onclick="gotoSlide(2)">Siguiente</button>
+            </div>
+            <div class="swiper-slide">
+              <div className="image-wrapper">
+                <img src="{% static 'png/entradas.png' %}" alt="tickets" />
+              </div>
+              <h2>Listo!</h2>
+              <h3>Un mundo de cine te espera</h3>
+              <button type="submit">Terminar</button>
+              <button class="secondary" onclick="restart()">Reiniciar</button>
+            </div>
           </div>
-          <h2>Seguridad</h2>
-          <h3>Introduce una contraseña segura</h3>
-             {{ form.password1 }}
-          <br>
-          <h3>Repite la contraseña</h3>
-            {{ form.password2 }}
-          <button disabled type="button" onclick="gotoSlide(2)">Siguiente</button>
-        </div>
-        
-        <div class="swiper-slide">
-          <div className="image-wrapper">
-            <img src="{% static 'png/entradas.png' %}" alt="tickets"/>
-          </div>
-          <h2>Listo!</h2>
-          <h3>Un mundo de cine te espera</h3>
-          <button type="submit">
-            <a href="{% url 'vimad:index' %}">Terminar</a>
-          </button>
-          <button class="secondary" onclick="restart()">Reiniciar</button>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
         </div>
       </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
     </div>
-  </div>
-</div>
-</form>
-
-{{error}}
-
-
-
-
+  </form>
 {% endblock contenido %}
-
 {% block js %}
   <script src="{% static 'js/registerfunctional.js' %}"></script>
   <script src="{% static 'js/register.js' %}"></script>

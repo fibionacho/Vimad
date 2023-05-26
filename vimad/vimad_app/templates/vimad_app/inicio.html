@@ -1,44 +1,35 @@
 {% extends 'vimad/base.html' %}
 {% load static %}
-
 {% block title %}
   <title>Login</title>
 {% endblock title %}
-
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/inicio.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/inicio.css' %}" />
 {% endblock css %}
-
 {% block contenido %}
-<div class="bground">
-  <div class="login-card">
-    <img src="{% static 'png/logo-no-background.png' %}"
-         height=""
-         width=""
-         alt="vimad logo" />
-    <h2>Inicio de sesión</h2>
-
-
-
-    <h3>Bienvenido a tu propio cine</h3>
-    <form action=""{% url 'vimad_app:inicio' %}" " method="POST" class="login-form">
-      {%csrf_token%}
-      <div class="username">
-        {{ form.username }}      
-      </div>
-      {{ form.password }}
-
-      {{error}}
-      <button class="control" type="button">
-        <a href="{% url 'vimad:sesion' %}" class="control reg">LOG IN</a>
-      </button>
-      <button class="control" type="button">
-        <a href="{% url 'vimad:register' %}" class="control reg">SIGN UP</a>
-      </button>
-    </form>
-</div>
-</div> 
+  <div class="bground">
+    <div class="login-card">
+      <img src="{% static 'png/logo-no-background.png' %}"
+           height=""
+           width=""
+           alt="vimad logo" />
+      <h2>Inicio de sesión</h2>
+      <h3>Bienvenido a tu propio cine</h3>
+      <form action=""
+            {% url 'vimad_app:inicio' %}
+            method="POST"
+            class="login-form">
+        {% csrf_token %}
+        <div class="username">{{ form.username }}</div>
+        {{ form.password }}
+        {{ error }}
+        <button type="submit" class="control">LOG IN</button>
+        <button class="control" type="button">
+          <a href="{% url 'vimad:register' %}" class="control reg">SIGN UP</a>
+        </button>
+      </form>
+    </div>
+  </div>
 {% endblock contenido %}
-
 {% block js %}
 {% endblock js %}
