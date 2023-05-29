@@ -1,0 +1,91 @@
+{% extends 'vimad/base_menus.html' %}
+
+{% load static %}
+
+{% block title %}
+  <title>Sobre nosotros</title>
+{% endblock title %}
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/proyecto.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    {% endblock css %}
+
+<body>
+
+    {% block contenido %}
+    <!--SECCION NAVEGACION-->
+
+    </div>
+        <div id="perfil">
+            
+           
+            <br>  
+            
+        </div>
+<br><br><br>
+
+<!--CUERPO-->
+
+<!--SECCION REDES-->
+<h1 class="aTitleBig">Dónde encontrarnos</h1>
+<div class="bloque" id="redes">
+    <a href="https://www.instagram.com/prismadisaudiovisual/?hl=es" target="_blank"><img id="foto3" alt="snapchat" src="{% static 'png/snap.png' %}"></a>
+    <a href="https://www.instagram.com/prismadisaudiovisual/?hl=es" target="_blank"><img id="foto2" alt="instagram" src="{% static 'png/insta2.png' %}"></a>
+    <a href="https://www.instagram.com/prismadisaudiovisual/?hl=es" target="_blank"><img id="foto1" alt="twitter" src="{% static 'png/twitter2.png' %}"></a>
+    <a href="https://www.instagram.com/prismadisaudiovisual/?hl=es" target="_blank"><img id="foto4" alt="linkedin" src="{% static 'png/linkedin.png' %}"></a>
+</div>
+<hr class="linea" id="barrido">
+<!--SECCION INFO-->
+<div class="bloque">
+  
+        <h1 class="aTitleBig">Sobre Vimad</h1>
+        <br>
+   
+    <div id="izq" class="col">
+        <h1 class="aTitle">¿Quienes formamos Vimad?</h1>
+        <hr class="linea">
+        <br>
+        <p class="aText">El proyecto Vimad nace como alternativa a las grandes plataformas de consumo audiovisual,
+            una web destinada a que los amantes del séptimo arte podamos disfrutar del gran olvidado del cine: el cortometraje.
+            Vimad está formada por un grupo de entusiastas del cortometraje que buscan hacer más accesible su distribución al público,
+            cuidando tanto de nuestros clientes como del producto.
+        </p>
+        <br>
+    </div>
+    <div id="ctr" class="col">
+        <h1 class="aTitle">¿Cómo suscribo contenido?</h1>
+        <hr class="linea">
+        <br>
+        <p class="aText">¡En Vimad hay cabida para todos! <br> <br> ¿Tienes un proyecto de tu escuela? ¿Quieres promocionar tu carrera artística?
+        ¿o tal vez quieres mostrar al mundo tu talento? Ponte en contacto con nuestro equipo y valoraremos juntos
+        tu propuesta y te acompañaremos y aconsejaremos durante todo el proceso.</p>
+        <br>
+        <a href="mailto:vimad@gmail.com" id="mailto">¡Contacta con nosotros haciendo click aquí!</a>
+        <br>
+    </div>
+    <div id="dcha" class="col">
+        <h1 class="aTitle">¿Cómo puedo colaborar?</h1>
+        <hr class="linea">
+        <br>
+        <p class="aText">Vimad funciona a través de micromecenazgos y sistemas de suscripción. ¡Si seguimos aquí es gracias a ti!
+            Si deseas colaborar en nuestro crowfoundig <a href="google.com"> haz click aquí</a>. <br><br>
+            Si quieres unirte a la familia de Vimad <a href=""> completa el registro aquí</a> y compartamos historias de cine.
+        </p>
+        <br>
+    </div>
+    <hr class="linea" id="barrido">
+    <br>
+</div>
+<!--SECCION COLABOS-->
+<br><br><br>
+<h1 class="aTitleBig">Nuestras colaboraciones</h1>
+<br><br>
+<div class="bloque" id="colabos">
+    <img src=" {% static 'png/codina.jpg' %}" alt="codina" height="100%" width="110px">
+    <img src=" {% static 'png/resad.jpg' %}" alt="resad" height="100%" width="120px">
+    <img src=" {% static 'png/cela.png' %}"alt="cela" height="100%" width="190px">
+    <img src=" {% static 'png/LOGO_PRISMADIS_NEGROred.png' %}" alt="prismad" height="100%" width="120px">
+    
+</div>
+{% endblock contenido %}

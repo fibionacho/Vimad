@@ -1,0 +1,150 @@
+@media (min-width:1200px) {
+.bloque{
+
+margin-left: 3%;
+margin-right: 3%;
+}
+
+#redes{
+    
+    opacity: 75%;
+    display: flex;
+    justify-content: center;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+#colabos{
+    background-color: white;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+#foto1, #foto2, #foto3 {
+    width: 7rem;
+  
+}
+#foto4{
+    width:7.2rem;
+}
+    .aTitle{
+        text-align: center;
+        color: white;
+    }
+    .aTitleBig{
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+    }
+    .linea{
+        margin-left: 20%;
+        color: aliceblue;
+        width: 60%;
+    
+    }
+    a{
+        color:white;
+    }
+    .aText{
+        color: white;
+        font-size: 1.5rem;
+    }
+    .col{
+        width: 30%;
+        text-align: justify;
+    }
+    #izq{
+        float: left;
+    }
+    #ctr{
+        float: left;
+        margin-left: 2%;
+    }
+    #dcha{
+        float: right;
+    }
+    #barrido{
+            clear: both;
+            float: none;
+
+    }
+    #mailto{
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+    }
+    #mailto:hover{
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}   
+@media (max-width:1200px) {
+    #bloque{
+        border: 2px solid white;
+      
+       
+        text-align: justify;
+        }
+    
+        #mailto{
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        #mailto:hover{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .aTitle{
+            text-align: center;
+            color: white;
+        }
+        .linea{
+            
+            color: aliceblue;
+            width: 100%;
+        
+        }
+        .aText{
+            color: white;
+            font-size: 1.5rem;
+        }
+        .col{
+            width: 95%;
+            text-align: justify;
+        }
+        a{
+            color:white;
+        }
+        #barrido{
+                clear: both;
+                float: none;
+    
+        }
+        #redes{
+          
+            opacity: 75%;
+            display: flex;
+            justify-content: center;
+            padding-left: 15rem;
+            padding-right: 15rem;
+        }
+        #foto1, #foto2, #foto3, #foto4{
+            width: 7rem;
+          
+        }
+        #colabos{
+            background-color: white;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            padding-left: 15rem;
+            padding-right: 15rem;
+        }
+        .aTitleBig{
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+        }
+}

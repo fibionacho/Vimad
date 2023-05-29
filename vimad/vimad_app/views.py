@@ -151,3 +151,8 @@ def inicio(request):
 def signout(request):
     logout(request)
     return redirect('vimad:inicio')
+
+
+# about
+def about(request):
+    return render(request, 'vimad_app/about.html')

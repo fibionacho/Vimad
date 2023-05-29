@@ -15,6 +15,7 @@ urlpatterns = [
     path('login/', views.inicio, name='inicio'),
     path('register/', views.register, name='register'),
     path('logout/', views.signout, name='logout'),
+    path('about/',views.about, name='about'),
 
     # BARRA BUSCADORA
     path('buscar/', views.buscar, name='buscar'),
