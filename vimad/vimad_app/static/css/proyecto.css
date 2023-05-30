@@ -12,6 +12,7 @@
 
 body {
     background: linear-gradient(to right, #20034e   ,#3909aa );
+    min-height: 100vh;
 }
 
 #nav {

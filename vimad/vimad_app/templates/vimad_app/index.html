@@ -12,7 +12,11 @@
 
 {% block contenido %}
   <!--CORTOS RECIENTES-->
-  {% include 'vimad_app/includes/cortos_list_block.html' with data_slide="1" titulo="Cortos añadidos recientemente" %}
+  {% include 'vimad_app/includes/cortos_list_block.html' with data_slide="1" titulo="Añadidos recientemente" %}
+  <!--ESPAÑOL-->
+  {% include 'vimad_app/includes/cortos_list_block.html' with data_slide="2" titulo="En español" cortos=cortos_espanol %}
+  <!--ANIMACION-->
+  {% include 'vimad_app/includes/cortos_list_block.html' with data_slide="3" titulo="Para los mas peques" cortos=cortos_animacion %}
 {% endblock contenido %}
 
 {% block js %}

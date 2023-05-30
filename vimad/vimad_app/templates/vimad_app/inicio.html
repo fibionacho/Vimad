@@ -20,9 +20,9 @@
             method="POST"
             class="login-form">
         {% csrf_token %}
+        <h4>{{ error }}</h4>
         <div class="username">{{ form.username }}</div>
         {{ form.password }}
-        {{ error }}
         <button type="submit" class="control">LOG IN</button>
         <button class="control" type="button">
           <a href="{% url 'vimad:register' %}" class="control reg">SIGN UP</a>

@@ -10,25 +10,26 @@ from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm, CustomAuthenticationForm
 
 
+# index - LISTADO DE CORTOS INICIAL - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
 
-# index - LISTADO DE CORTOS
-
-
-def index(request):
-    cortos = Corto.objects.all().order_by('-id')
-    return render(request, 'vimad_app/index.html', {'cortos': cortos})
+def index(request, genero=None, idioma=None):
+    cortos = Corto.objects.all().order_by('-id')[:10]
+    cortos_animacion = list(Corto.objects.filter(genero='animacion').order_by('?'))[:10]
+    cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))[:10]
+    return render(request, 'vimad_app/index.html', {'cortos': cortos, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
 
 # cortos - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
 
 
-def cortos(request, genero=None):
-    cortos_drama = list(Corto.objects.filter(genero='drama').order_by('?'))
+def cortos(request, genero=None, idioma=None):
+    cortos_drama = list(Corto.objects.filter(genero='drama').order_by('?'))[:10]
     cortos_animacion = list(Corto.objects.filter(
-        genero='animacion').order_by('?'))
-    cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))
+        genero='animacion').order_by('?'))[:10]
+    cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))[:10]
     return render(request, 'vimad_app/cortos.html', {'cortos_drama': cortos_drama, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
 
 # perfil
+
 
 @login_required(login_url='vimad:inicio')
 def perfil(request):
@@ -36,11 +37,13 @@ def perfil(request):
 
 # sesion
 
+
 @login_required(login_url='vimad:inicio')
 def sesion(request):
     return render(request, 'vimad_app/sesion.html')
 
 # video
+
 
 @login_required(login_url='vimad:inicio')
 def video(request, slug):
@@ -115,11 +118,11 @@ def register(request):
                 except IntegrityError:
                     return render(request, 'vimad_app/register.html', {
                         'form': CreateUserForm,
-                        "error": 'Username already exists',
+                        "error": 'El usuario ya existe',
                     })
             return render(request, 'vimad_app/register.html', {
                 'form': CreateUserForm,
-                "error": 'Password do not match',
+                "error": 'Las contraseñas no coinciden',
             })
 
 # login
@@ -139,7 +142,7 @@ def inicio(request):
             if user is None:
                 return render(request, 'vimad_app/inicio.html', {
                     'form': CustomAuthenticationForm,
-                    'error': 'Username or password is incorrect'
+                    'error': 'Usuario o contraseña incorrectos'
                 })
             else:
                 login(request, user)
@@ -154,5 +157,17 @@ def signout(request):
 
 
 # about
+
 def about(request):
     return render(request, 'vimad_app/about.html')
+
+
+# pruebas 
+
+def generos(request):
+    generos = Corto.objects.values_list('genero', flat=True).distinct()
+    return render(request, 'vimad_app/generos.html', {'generos': generos})
+
+def cortos_por_genero(request, genero):
+    cortos = Corto.objects.filter(genero=genero)
+    return render(request, 'vimad_app/cortos_por_genero.html', {'cortos': cortos})

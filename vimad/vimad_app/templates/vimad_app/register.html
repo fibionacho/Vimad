@@ -19,24 +19,22 @@
             <!-- Slides -->
             <div class="swiper-slide">
               <img src="{% static 'png/logo-no-background.png' %}" alt="vimad logo" />
-              <h2>Bienvenido!</h2>
-              <h3>Empieza introduciendo tu correo</h3>
+              <h3 class="error-message">{{ error }}</h3>
+              <h2 class="white">Bienvenido!</h2>
+              <p class="white">Empieza introduciendo tu correo:</p>
               {{ form.email }}
-              <br>
-              <h3>Y el nombre de usuario que deseas</h3>
+              <p class="white">Y el nombre de usuario que deseas:</p>
               {{ form.username }}
               <button disabled type="button" onclick="gotoSlide(1)">Siguiente</button><br>
-             {{ error }}
             </div>
             <div class="swiper-slide">
               <div className="image-wrapper">
                 <img src="{% static 'png/corn.png' %}" alt="palomitas" />
               </div>
               <h2>Seguridad</h2>
-              <h3>Introduce una contraseña segura</h3>
+              <p class="white">Introduce una contraseña segura</p>
               {{ form.password1 }}
-              <br>
-              <h3>Repite la contraseña</h3>
+              <p class="white">Repite la contraseña</p>
               {{ form.password2 }}
               <button disabled type="button" onclick="gotoSlide(2)">Siguiente</button>
             </div>
@@ -45,7 +43,7 @@
                 <img src="{% static 'png/entradas.png' %}" alt="tickets" />
               </div>
               <h2>Listo!</h2>
-              <h3>Un mundo de cine te espera</h3>
+              <p class="white">Un mundo de cine te espera</p>
               <button type="submit">Terminar</button>
               <button class="secondary" onclick="restart()">Reiniciar</button>
             </div>

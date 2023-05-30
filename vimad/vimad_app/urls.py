@@ -25,4 +25,9 @@ urlpatterns = [
     # path('reset_password_sent/' , auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
     # path('reset/<uidb64>/<token>/' , auth_views.PasswordResetConfirmationView.as_view(), name="password_reset_confirm"),
     # path('reset_password_complete/' , auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
+
+    #pruebas
+    path('generos/', views.generos, name='generos'),
+    path('generos/<str:genero>/', views.cortos_por_genero, name='cortos_por_genero'),
+
 ]

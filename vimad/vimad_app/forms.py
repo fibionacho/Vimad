@@ -11,11 +11,11 @@ class CreateUserForm(UserCreationForm):
     )
 
     password1 = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder':'Tu contraseña','oninput' : 'checkValid(event)', 'type':'password'}),
+        widget=forms.PasswordInput(attrs={'placeholder':'Tu contraseña','oninput' : 'checkValid(event)', 'type':'password'}),
     )
 
     password2 = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder':'Repite tu contraseña','oninput' : 'checkValid(event)', 'type':'password'}),
+        widget=forms.PasswordInput(attrs={'placeholder':'Repite tu contraseña','oninput' : 'checkValid(event)', 'type':'password'}),
     )
 
 

@@ -1,0 +1,35 @@
+{% extends 'vimad/base_menus.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Cortos por Género</title>
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/slyder.css' %}" />
+{% endblock css %}
+
+{% block contenido %}
+<div class="container">
+  <h1>Cortos por Género: {{ genero }}</h1>
+  {% if cortos %}
+    <ul>
+      {% for corto in cortos %}
+      <li>
+        <h3>{{ corto.titulo }}</h3>
+        <p>{{ corto.sinopsis }}</p>
+        <!-- Agrega aquí cualquier información adicional que desees mostrar para cada corto -->
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay cortos disponibles para este género.</p>
+  {% endif %}
+</div>
+{% endblock contenido %}
+
+{% block js %}
+<!--js scripts de index y cortos-->
+{% include 'vimad_app/includes/js_scripts_cortos_index.html' %}
+{% endblock js %}
