@@ -171,3 +171,5 @@ def generos(request):
 def cortos_por_genero(request, genero):
     cortos = Corto.objects.filter(genero=genero)
     return render(request, 'vimad_app/cortos_por_genero.html', {'cortos': cortos})
+
+# 
