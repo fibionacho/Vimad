@@ -20,8 +20,39 @@
         <!--footer-->
         {% include 'vimad/includes/footer.html' %}
         <!--SCRIPTS-->
-        <script src="{% static 'js/jquery.min.js' %}"></script>
-        <script src="{% static 'js/barraBuscadora.js' %}"></script>     
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/barraBuscadora.js' %}"></script>
+        
+        <script>
+
+            $.ajax({
+                url: '/buscar/',
+                type: 'GET',
+                beforeSend: function() {
+                    console.log('La petición AJAX está en curso...');
+                },
+                success: function(data) {
+                    console.log('La petición AJAX se completó con éxito.');
+                    // Manejar los datos devueltos por la petición AJAX
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('La petición AJAX ha fallado.');
+                    // Manejar el error de la petición AJAX
+                },
+                complete: function() {
+                    console.log('La petición AJAX se ha completado.');
+                    // Realizar acciones adicionales después de que se complete la petición AJAX
+                }
+            });
+
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                console.log("jQuery está funcionando correctamente");
+            });
+        </script>
+        
         {% block js %}
         {% endblock js %}
     </body>
