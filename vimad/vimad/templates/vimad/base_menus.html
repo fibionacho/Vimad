@@ -19,16 +19,11 @@
         {% endblock contenido %}
         <!--footer-->
         {% include 'vimad/includes/footer.html' %}
-        {% include 'vimad_app/includes/js_scripts_cortos_index.html' %}
+        <!--SCRIPTS-->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/barraBuscadora.js' %}"></script>     
         {% block js %}
-   
-            
         {% endblock js %}
-
-
-
-
-
     </body>
 
         

@@ -3,7 +3,7 @@ $(document).ready(function() {
         var query = $('#buscar-input').val();
 
         $.ajax({
-            url: '{% url "buscar" %}',
+            url: '/buscar/',
             data: {
                 'q': query
             },

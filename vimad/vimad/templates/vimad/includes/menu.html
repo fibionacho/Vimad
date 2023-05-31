@@ -16,15 +16,12 @@
 
 
 
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" method="GET">
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" id="buscar-input">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="buscar-btn">Buscar</button>
             </form>
-            
+            <div id="resultados-busqueda" class="list-group"></div>
 
-
-
-            <input type="text" name="buscador" id="search" placeholder="Buscar">
             <ul class="nav">
                 <li id="userlist">
                     <img src="{% static 'svg/user.svg' %}"
