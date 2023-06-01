@@ -11,22 +11,7 @@
 {% endblock css %}
 
 {% block contenido %}
-<div class="container">
-  <h1>Cortos por Género: {{ genero }}</h1>
-  {% if cortos %}
-    <ul>
-      {% for corto in cortos %}
-      <li>
-        <h3>{{ corto.titulo }}</h3>
-        <p>{{ corto.sinopsis }}</p>
-        <!-- Agrega aquí cualquier información adicional que desees mostrar para cada corto -->
-      </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No hay cortos disponibles para este género.</p>
-  {% endif %}
-</div>
+{% include 'vimad_app/includes/cortos_list_block.html' %}
 {% endblock contenido %}
 
 {% block js %}

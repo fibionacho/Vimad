@@ -14,22 +14,41 @@ from .forms import CreateUserForm, CustomAuthenticationForm
 
 def index(request, genero=None, idioma=None):
     cortos = Corto.objects.all().order_by('-id')[:10]
-    cortos_animacion = list(Corto.objects.filter(genero='animacion').order_by('?'))[:10]
-    cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))[:10]
+    cortos_animacion = list(Corto.objects.filter(
+        genero='animacion').order_by('?'))[:10]
+    cortos_espanol = list(Corto.objects.filter(
+        idioma='español').order_by('?'))[:10]
     return render(request, 'vimad_app/index.html', {'cortos': cortos, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
 
 # cortos - LISTADO DE CORTOS POR GENERO, IDIOMA, etc
 
 
-def cortos(request, genero=None, idioma=None):
-    cortos_drama = list(Corto.objects.filter(genero='drama').order_by('?'))[:10]
-    cortos_animacion = list(Corto.objects.filter(
-        genero='animacion').order_by('?'))[:10]
-    cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))[:10]
-    return render(request, 'vimad_app/cortos.html', {'cortos_drama': cortos_drama, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
+# def cortos(request, genero=None, idioma=None):
+#     cortos_drama = list(Corto.objects.filter(genero='drama').order_by('?'))[:10]
+#     cortos_animacion = list(Corto.objects.filter(
+#         genero='animacion').order_by('?'))[:10]
+#     cortos_espanol = list(Corto.objects.filter(idioma='español').order_by('?'))[:10]
+#     return render(request, 'vimad_app/cortos.html', {'cortos_drama': cortos_drama, 'cortos_animacion': cortos_animacion, 'cortos_espanol': cortos_espanol})
+
+# LISTADO DE GENEROS
+
+def generos(request):
+    generos = Corto.objects.values_list('genero', flat=True).distinct()
+    return render(request, 'vimad_app/generos.html', {'generos': generos})
+
+# VISTA DE CORTOS POR GENERO
+
+def cortos_por_genero(request, genero):
+    cortos = Corto.objects.filter(genero=genero)
+    titulo = "Cortos de " + genero
+    return render(request, 'vimad_app/cortos_por_genero.html', {'cortos': cortos, 'titulo': titulo})
+
+# about
+
+def about(request):
+    return render(request, 'vimad_app/about.html')
 
 # perfil
-
 
 @login_required(login_url='vimad:inicio')
 def perfil(request):
@@ -37,13 +56,11 @@ def perfil(request):
 
 # sesion
 
-
 @login_required(login_url='vimad:inicio')
 def sesion(request):
     return render(request, 'vimad_app/sesion.html')
 
 # video
-
 
 @login_required(login_url='vimad:inicio')
 def video(request, slug):
@@ -53,7 +70,6 @@ def video(request, slug):
     return render(request, 'vimad_app/video.html', {'video_url': corto.video.url})
 
 # ficha - USO DE MODELOS COGIENDO slug POR URL
-
 
 def ficha(request, slug):
     corto = get_object_or_404(Corto, slug=slug)
@@ -70,8 +86,8 @@ def ficha(request, slug):
 
     return render(request, 'vimad_app/ficha.html', context)
 
-# BUSCADOR
 
+# BUSCADOR
 
 def buscar(request):
     query = request.GET.get('q', '')
@@ -97,7 +113,6 @@ def buscar(request):
     return JsonResponse({'cortos': cortos_list})
 
 # register
-
 
 def register(request):
     if request.user.is_authenticated:
@@ -127,7 +142,6 @@ def register(request):
 
 # login
 
-
 def inicio(request):
     if request.user.is_authenticated:
         return redirect('vimad:index')
@@ -150,26 +164,6 @@ def inicio(request):
 
 # logout
 
-
 def signout(request):
     logout(request)
     return redirect('vimad:inicio')
-
-
-# about
-
-def about(request):
-    return render(request, 'vimad_app/about.html')
-
-
-# pruebas 
-
-def generos(request):
-    generos = Corto.objects.values_list('genero', flat=True).distinct()
-    return render(request, 'vimad_app/generos.html', {'generos': generos})
-
-def cortos_por_genero(request, genero):
-    cortos = Corto.objects.filter(genero=genero)
-    return render(request, 'vimad_app/cortos_por_genero.html', {'cortos': cortos})
-
-# 

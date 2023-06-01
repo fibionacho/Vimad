@@ -9,7 +9,8 @@
         </div>
         <div class="col" id="listas">
             <a href={% url 'vimad:index' %} class="nav1">Inicio</a>
-            <a href={% url 'vimad:cortos' %} class="nav1">Cortos</a>
+            <a href={% url 'vimad:generos' %} class="nav1">Generos</a>
+            <a href={% url 'vimad:about' %} class="nav1">About</a>
         </div>
         <div class="col " id="buscador">
             <img src="{% static 'svg/lupa.svg' %}" alt="buscador" height="35px" width="">
@@ -41,6 +42,7 @@
                                          class="pic">
                                 Perfil</a>
                             </li>
+                            <!--
                             <li>
                                 <a href="">
                                     <img src="{% static 'svg/seguridad.svg' %}"
@@ -51,6 +53,7 @@
                                          id="user">
                                 Seguridad</a>
                             </li>
+                            -->
                             <li>
                                 <a href="{% url 'vimad:perfil' %}">
                                     <img src="{% static 'svg/settings.svg' %}"
