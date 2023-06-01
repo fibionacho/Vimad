@@ -20,7 +20,7 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" id="buscar-input">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="buscar-btn">Buscar</button>
             </form>
-            <div id="resultados-busqueda" class="list-group"></div>
+            
 
 
             <ul class="nav">
@@ -101,3 +101,35 @@
     </div>
 </div>
 <br>
+<div id="resultados-busqueda" style="display:none" class="group">
+    <!-- Contenido del modal -->
+    <div class="modal-contenido">
+      <button id="cerrar-modal">Cerrar</button>
+    </div>
+    </div>
+
+    <script>
+
+var abrirModal = document.getElementById('buscar-btn');
+var cerrarModal = document.getElementById('cerrar-modal');
+var modal = document.getElementById('resultados-busqueda');
+var body = document.body;
+
+abrirModal.addEventListener('click', function() {
+    event.stopPropagation();
+  modal.style.display = 'block';
+});
+
+cerrarModal.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+body.addEventListener('click', function(event) {
+  if (!modal.contains(event.target)) {
+    modal.style.display = 'none';
+  }
+});
+
+
+
+    </script>

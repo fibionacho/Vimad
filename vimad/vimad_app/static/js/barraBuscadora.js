@@ -15,7 +15,8 @@ $(document).ready(function() {
                     $('#resultados-busqueda').append('<p>No se encontraron resultados.</p>');
                 } else {
                     $.each(data.cortos, function(index, corto) {
-                        $('#resultados-busqueda').append('<a href="ficha/"'+corto.idioma+' class="list-group-item list-group-item-action"><img src="' + corto.imagen + '" alt="Imagen del corto"><h5 class="mb-1">' + corto.titulo + '</h5><p class="mb-1">' + corto.genero + ', ' + corto.idioma + ', ' + corto.pais + '</p></a>');
+                        $('#resultados-busqueda').append('<a href="ficha/' + corto.slug + '" class="list-group-item list-group-item-action"><img src="' + corto.imagen + '" alt="Imagen del corto" width="300px"><h5 class="mb-1">' + corto.titulo + '</h5><p class="mb-1">' + corto.genero + ', ' + corto.idioma + ', ' + corto.pais + '</p></a>');
+
                     });
                 }
             }
