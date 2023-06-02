@@ -41,6 +41,7 @@
     height: 2px;
     background: #ccc;
     line-height: 0;
+    overflow-x: hidden;
 }
 
 .scrollbar .handle {

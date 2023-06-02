@@ -59,6 +59,7 @@ right:0;
 body {
     background: linear-gradient(to right, #20034e   ,#3909aa );
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #nav {
@@ -313,6 +314,7 @@ h1{
     
     body {
         background: linear-gradient(to right, #20034e   ,#3909aa );
+        overflow-x: hidden;
     }
     
     #nav {
