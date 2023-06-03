@@ -12,11 +12,11 @@ html {
   
 }
 
-.card {
+.card1 {
   display: flex;
   align-items: center;
   width: 75vw;
-  height: 500px;
+  height: 600px;
   max-width: 650px;
   padding: 50px 30px 50px 20px;
   background: #030334;
@@ -27,7 +27,7 @@ p, h1,h2,h3,h4,ul,li{
     color: #f8f8f8;
 
 }
-.card img {
+.card1 img {
   max-width: 280px;
   width: 28vw;
   height: 300px;
@@ -38,27 +38,27 @@ p, h1,h2,h3,h4,ul,li{
   box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
 }
 
-.card h2 {
+.card1 h2 {
   font-size: 22px;
   margin-right: 30px;
 }
 
-.card h1 {
+.card1 h1 {
 color: white
   }
 
-.card h3 {
+.card1 h3 {
   font-size: 16px;
   font-weight: 400;
 }
 
-.card p {
+.card1 p {
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 24px;
 }
 
-.card button {
+.card1 button {
   border: 0;
   background: linear-gradient(90deg, #5448de, #5448de);
   color: #f8f8f8;
@@ -69,22 +69,22 @@ color: white
 }
 
 @media (width <= 740px) {
-  .card {
+  .card1 {
     margin: 0 40px;
     padding-left: 50px;
     padding-right: 50px;
     width: 100%;
     text-align: center;
     flex-direction: column;
-  height: 700px;
+  height: 900px;
   }
 
-  .card h2 {
+  .card1 h2 {
     margin-right: 0;
     font-size: 26px;
   }
 
-  .card img {
+  .card1 img {
     margin: -100px 0 30px 0;
     width: 100%;
     max-width: 1000px;

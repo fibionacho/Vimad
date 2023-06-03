@@ -1,4 +1,4 @@
-@media (min-width:790px) {
+@media (min-width:978px) {
 
 
 
@@ -11,7 +11,9 @@
 }
 
 
-
+.magicItem{
+    display: none;
+}
 
 #resultados-busqueda {
     display: flex;
@@ -304,7 +306,7 @@ h1{
     z-index: 0;
 }
 }
-@media (max-width:789px) {
+@media (max-width:978px) {
     *{
         margin: 0;
         padding: 0;
@@ -348,10 +350,11 @@ h1{
     }
     
     .nav1 {
-       font-size: 150%;
+       /* font-size: 150%;
         padding-left: 5%;
         color: white;
-        text-decoration: none;
+        text-decoration: none; */
+        display: none;
     }
     
     .nav1:hover{
@@ -556,5 +559,20 @@ h1{
         position: relative;
         display: inline-block;
         z-index: 0;
+    }
+
+    .form-inline{
+        display: none;
+    }
+    #buscar-btn{
+        display: none;
+    }
+    .magicItem{
+        margin-left: 3%;
+      
+    }
+    .nav12{
+        
+        margin-left: 3%;
     }
 }

@@ -5,11 +5,12 @@
 {% endblock title %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/ficha.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
   
 {% endblock css %}
 {% block contenido %}
     <div class="bloque">
-        <div class="card">
+        <div class="card1">
             <!--Comprueba que hay imagen cargada y si no, pone una por defecto-->
             {% if corto.imagen %}
                 <img src="{{ corto.imagen.url }}" alt="{{ corto.titulo }}" />

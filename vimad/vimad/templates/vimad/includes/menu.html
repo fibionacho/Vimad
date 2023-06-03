@@ -1,19 +1,24 @@
-{% load static %}
+#{% load static %}
 <div class="container-fluid text-white">
     <div class="row" id="nav">
         <div class="col">
-            <img src="{% static 'png/logo-no-background.png' %}"
+            <a href={% url 'vimad:index' %} >    <img src="{% static 'png/logo-no-background.png' %}"
                  alt="vimad logo"
                  height="100px"
-                 width="">
+                 width=""></a>
         </div>
         <div class="col" id="listas">
             <a href={% url 'vimad:index' %} class="nav1">Inicio</a>
             <a href={% url 'vimad:generos' %} class="nav1">Géneros</a>
+            
             <a href={% url 'vimad:about' %} class="nav1">About us</a>
+            
         </div>
+        <a href={% url 'vimad:generos' %} class="nav12"><img class ="magicItem"src="{% static 'svg/genre.svg' %}"  height="35px"alt="genres"></a>
+        <a href={% url 'vimad:about' %} class="nav12"><img class ="magicItem"src="{% static 'svg/about.svg' %}"  height="35px"alt="about us"></a>
+        <img class="magicItem"src="{% static 'svg/lupa.svg' %}" alt="buscador" height="35px" width="">
         <div class="col " id="buscador">
-            <img src="{% static 'svg/lupa.svg' %}" alt="buscador" height="35px" width="">
+            
 
             
             <form class="form-inline my-2 my-lg-0" method="GET">
